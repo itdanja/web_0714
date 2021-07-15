@@ -80,9 +80,28 @@ public class Day02_1 { // c s
 			System.out.println(" java 정수타입 기본단위 : " +  (10) );
 			
 			// 6. long : 8byte [ +-20억 이상 ] 
-			// 7. float : 4byte [ 
-			// 8. double : 8byte [ 
-		
+			long 롱변수 = 10000000000L; //  데이터L
+			System.out.println(" 롱변수 값은 " + 롱변수);
+			
+			// 7. float : 4byte [ ] : 실수형/소수점 6자릿수
+			float 실수변수1 = 10.51111111111f;	// 데이터f
+			System.out.println(" 실수변수 값은 "+실수변수1);
+			
+			// 8. double : 8byte [  ] : 실수의 기본타입  / 15자릿수 
+			double 실수변수2 = 10.511111111111111111111; 
+			System.out.println(" 실수변수2 값은 " +실수변수2);
+			
+			// 기본자료형에 문자열이 없음 => char
+			// 문자열 방법1 => 배열
+				char[] 문자열1 = new char[3];
+				문자열1[0] = '안';
+				문자열1[1] = '녕';
+				문자열1[2] = '하';
+			// 문자열 방법2 => 클래스 => String : 문자열 관련 클래스 
+				String 문자열2 = "안녕하";
+				
+			
+			
 		
 		
 		
