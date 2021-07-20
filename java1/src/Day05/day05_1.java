@@ -6,7 +6,9 @@ public class day05_1 {
 		// for , while , do~while
 		// 1.for : 어디서부터 어디까지 어떻게 증가하면서 반복실행 
 			// for( 초기값 , 조건문 , 증감식 ) { 실행문; }
-	
+		// 2. for 중첩 
+			// for1(){ for2( ){ for3(){} } }
+				// 총 실행횟수 : for1 실행횟수 * for2 실행횟수 * for3 실행횟수
 	public static void main(String[] args) {
 		
 		// 예1)
@@ -51,8 +53,27 @@ public class day05_1 {
 			// 곱 변수는 1부터 9이하까지 1씩증가하면서 반복실행 [ 9번실행]
 			System.out.println("2 X "+곱+" = " + (2*곱) );
 		}
+	System.out.println("\n-------------------------------");
+	
+	// for중첩 
+	for( int i = 0 ; i<=5 ; i++ ) {
+		System.out.println("i의 위치 : " + i);
+		for( int j = 0 ; j<=5 ; j++ ) {
+			System.out.println("--- j의 위치 : "+j +" 그리고 현재 i : " + i);
+		}
+	}
+		// i가 1번 실행마다 j는 5번 실행 
+		// i는 총 5번 실행 => j는 25번 실행 
+	
 		// 예7 : 2~15단까지 구구단 
-		
+			// 단 : 2~15까지 1씩 증가하면서 반복 
+				// 곱은 단마다 1~9까지 1씩 증가하면서 반복
+		for( int 단 = 2 ; 단<=15 ; 단++ ) {
+			System.out.println("-- "+단+" 단 결과");
+			for( int 곱 = 1 ; 곱<=9 ; 곱++ ) {
+				System.out.println(단+" X "+곱+" = "+(단*곱));
+			}
+		}
 		
 		
 		
