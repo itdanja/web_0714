@@ -78,12 +78,29 @@ public class day06_2 {
 					// 등수별 출력[ 내림차순 ]
 					// 1. 직접코드작성 2.클래스이용[미리 만들어진 코드 ]
 					
+					// 4개 인덱스가 존재했을경우 [0] : 3번  [1] : 2번 [2] : 1번 [3] : 0번
+					for( int i = 0 ; i<학생점수목록.length-1 ; i++ ) {
+						for(int j = i+1 ; j <학생점수목록.length ; j++  ) {
+							if( 학생점수목록[i] < 학생점수목록[j] ) {	// < 내림차순  >오름차순
+								//스왑[교체]
+								int temp = 학생점수목록[j];
+								학생점수목록[j] = 학생점수목록[i];
+								학생점수목록[i] = temp;
+							}
+						}
+					}
+					// i = 0 	j = 1	j = 1 2 3 	
+					// i = 1	j = 2	j = 2 3 
+					// i = 2  	j = 3	j = 3
+					// i = 3	
+				
+					/*
 					// 2. Arrays.sort(배열); // 오름차순 
 					Arrays.sort(학생점수목록);
 						// 내림차순 : 오름차순 반대 
 					 	Arrays.sort( 학생점수목록 , Collections.reverseOrder() );
 					 		// Collections.reverseOrder() : 배열의 자료형X 클래스O
-					 	
+					 */	
 					int 합계 = 0 ;
 					// 모든 배열내 요소들의 합계
 					for( int i = 0 ; i<학생점수목록.length ; i++ ) {
