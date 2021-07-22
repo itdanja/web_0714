@@ -80,10 +80,39 @@ public class Day07_회원제프로그램 {
 						while(true) { // 로그인시 무한루프 [ 종료조건 : 로그아웃[3] 입력시 ]
 
 							System.out.println("\n[[[ 회원 메뉴 ]]]");
-							System.out.print("[[ 1.회원탈퇴 2.비밀번호변경 3.로그아웃  선택 : ");
+							System.out.print("[[ 1.회원탈퇴 2.비밀번호변경 3.로그아웃 4.글쓰기 5.글목록  선택 : ");
 							int ch2 = scanner.nextInt();
-							if( ch2 == 1 ) {}
-							else if( ch2 == 2 ) {}
+							if( ch2 == 1 ) { // 회원탈퇴 
+								
+								// 탈퇴한 회원 뒤로 한칸씩 당기기
+								// 1. 로그인된 회원[ 탈퇴회원] 정보 지우기 
+								memberlist[i][0] = null;
+								memberlist[i][1] = null;
+								
+								// 2. 탈퇴회원 뒤로 한칸씩 당기기 
+								for( int j = i ; j<memberlist.length ; j++ ) {
+									if( memberlist[j+1][0] != null  ) { // 다음회원 여부 확인 
+										memberlist[j][0] = memberlist[j+1][0];	// 현재위치에 j 에 다음회원 j+1 대입
+										memberlist[j][1] = memberlist[j+1][1];	// 현재위치에 j 에 다음회원 j+1 대입
+									}else { // 다음 회원이 없으면 
+										memberlist[j][0] = null;
+										memberlist[j][1] = null;
+										break;
+									}
+								}
+								// 3. 로그아웃 
+								System.out.println("[[탈퇴성공]] 회원탈퇴 되었습니다 ");
+								break; // 로그아웃
+
+							}
+							else if( ch2 == 2 ) { // 비밀번호 변경
+								System.out.println("[[[ 패스워드변경 페이지 ]]]");
+								System.out.print("[[ ---> 새로운비밀번호 : ");	String newpassword = scanner.next();
+								memberlist[i][1] = newpassword;
+								System.out.println("[[알림]] 패스워드 변경 완료 [ 자동 로그아웃 됩니다 ] ");
+										// i : 현재 로그인 성공한 행번호[회원]
+								break;
+							}
 							else if( ch2 == 3 ) { System.out.println("[[로그아웃]] 로그아웃 되었습니다"); break;}
 							else {System.out.println("[[알림]] 알수없는 번호 입니다 ");}
 							
