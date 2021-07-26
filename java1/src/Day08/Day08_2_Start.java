@@ -10,6 +10,8 @@ public class Day08_2_Start {
 	public static Scanner scanner = new Scanner(System.in);
 		// static : 메모리 우선할당 [ 프로그램 시작과 동시에 메모리 할당 => 모든 프로그램 종료시 초기화 ] 
 	
+	public static Board[] boardlist = new Board[100];
+	
 	public static void main(String[] args) {
 		
 		// 2. 메소드 호출 
@@ -28,13 +30,15 @@ public class Day08_2_Start {
 		while(true) {
 			
 			board.blist(); // 1. 글 목록 
+			
 			System.out.println("0.글쓰기 1.글상세보기 ");
 			int ch = scanner.nextInt();
-			if( ch == 0 ) board.bwrite(); // 글쓰기 
+			
+			if( ch == 0 ) board.bwrite(); // 2.글쓰기 
 			if( ch == 1 ) {
 				System.out.println("[[[ 게시물번호 입력 : ]]]"); 
 				int ch2 =scanner.nextInt();
-				board.bview( ch2 );
+				board.bview( ch2 ); // 3.글 상세페이지
 			}
 			
 			
