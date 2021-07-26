@@ -26,7 +26,8 @@ public class Day08_2_Start {
 	public static void start() {
 		
 		Board board = new Board(); // 필드가 null 인 깡통 객체 
-		
+			// 깡통객체 : 메소드 호출용
+
 		while(true) {
 			
 			board.blist(); // 1. 글 목록 
