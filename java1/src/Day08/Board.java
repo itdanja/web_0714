@@ -92,8 +92,21 @@ public class Board {
 			
 		}
 		// 3. 글수정 
-		public void bupdate() {
+		public void bupdate( int bno  ) { // 현재 메소드 외부로부터 현재 메소드로 들어오는 데이터 ( 자료형 동일하게 ) [ 인수 :  ] 
+			Scanner scanner = new Scanner(System.in);
 			System.out.println("[[[ 글수정 페이지 ]]]");
+			
+			int index = findboard(bno);
+			if( index == -1 ) return;
+			
+			System.out.print(" 제목 : ");
+			Day08_2_Start.boardlist[index].btitle = scanner.nextLine();
+			
+			System.out.print(" 내용 : ");
+			Day08_2_Start.boardlist[index].bcontents = scanner.nextLine();
+			
+			System.out.println("[[[ 글수정 ]] 완료 ");
+			
 		}
 		// 4. 글삭제 
 		public void bdelete( int bno ) {
@@ -139,7 +152,7 @@ public class Board {
 			System.out.println(" 1.수정 2.삭제 3.댓글작성 4.뒤로가기");
 			Scanner scanner = new Scanner(System.in);
 			int ch = scanner.nextInt();
-			if( ch == 1 ) {}
+			if( ch == 1 ) { bupdate( bno );}
 			if( ch == 2 ) { bdelete( bno ); return; }
 			if( ch == 3 ) {}
 			if( ch == 4 ) { 
