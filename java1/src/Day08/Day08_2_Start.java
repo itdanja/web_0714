@@ -37,15 +37,14 @@ public class Day08_2_Start {
 			
 			if( ch == 0 ) board.bwrite(); // 2.글쓰기 
 			if( ch == 1 ) {
-				System.out.println("[[[ 게시물번호 입력 : ]]]"); 
-				int ch2 =scanner.nextInt();
-				board.bview( ch2 ); // 3.글 상세페이지
+				System.out.println("[[[ 게시물번호 입력 : "); 
+				int bno =scanner.nextInt();
+				board.bview( bno ); // 3.글 상세페이지
 			}
-			
-			
+
 		}
 		
-	}
+	} // start end
 
 } //class end 
 

@@ -96,16 +96,70 @@ public class Board {
 			System.out.println("[[[ 글수정 페이지 ]]]");
 		}
 		// 4. 글삭제 
-		public void bdelete() {
-			System.out.println("[[[ 글삭제 페이지 ]]]");
+		public void bdelete( int bno ) {
+			// System.out.println("[[[ 글삭제 페이지 ]]]");
+			System.out.println("[[ 해당 게시물이 삭제 되었습니다 ]] ");
+			
+			for( int i = 0 ; i<Day08_2_Start.boardlist.length ; i++ ) {
+				if( Day08_2_Start.boardlist[i] !=null && Day08_2_Start.boardlist[i].bno == bno ) {
+					
+					// 해당 게시물번호의 객체 삭제 
+					Day08_2_Start.boardlist[i] = null;
+					// 삭제된 게시물 뒤로 한칸씩 당기기 
+					for( int j = i ; j<Day08_2_Start.boardlist.length ; j++ ) {
+						
+						// 다음 객체가 있으면 
+						if( Day08_2_Start.boardlist[j+1] != null ) {
+							Day08_2_Start.boardlist[j] = Day08_2_Start.boardlist[j+1];
+						}else {
+							Day08_2_Start.boardlist[j+1] = null;
+							break;
+						}
+					}
+				}
+			}
 		}
 		// 5. 조회수증가 
 		public void bcount() {
-			System.out.println("[[[ 조회수증가 페이지 ]]]");
+			//System.out.println("[[[ 조회수증가 페이지 ]]]");
+			this.bcount++; // 조회수 증가
 		}
 		// 6. 글 상세페이지
-		public void bview( int ch2 ) { // 인수o
+		public void bview( int bno ) { // 인수o
+			
+			Board board = null ;
+			
+			for( int i = 0 ; i<Day08_2_Start.boardlist.length ; i++  ) {	
+				if( Day08_2_Start.boardlist[i] !=null && Day08_2_Start.boardlist[i].bno == bno ) {
+						/// i번째 인덱스의 배열값이 널이 아니면서 i번째 인덱스의 배열값의 게시물번호가 선택한 게시물번호와 같으면 
+					
+					board = Day08_2_Start.boardlist[i];
+					board.bcount(); // 조회수 증가 메소드 호출 
+					break;
+				}
+			}
+			
+			if( board == null ) return;
+			
 			System.out.println("[[[ 상세페이지 페이지 ]]]");
+			System.out.println(" 제목 : " + board.btitle );
+			System.out.println(" 작성자 : "+board.bwriter+"  조회수 : "+board.bcount +" 작성일 : " + board.bdate);
+			System.out.println(" 내용 : " + board.bcontents );
+			System.out.println(" 1.수정 2.삭제 3.댓글작성 4.뒤로가기");
+			Scanner scanner = new Scanner(System.in);
+			int ch = scanner.nextInt();
+			if( ch == 1 ) {}
+			if( ch == 2 ) { bdelete( bno ); return; }
+			if( ch == 3 ) {}
+			if( ch == 4 ) { 
+				return; //메소드 종료
+			}
 		}
+		
+		
+		
+		
+		
+		
 		
 }
