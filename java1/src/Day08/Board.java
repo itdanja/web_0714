@@ -100,24 +100,23 @@ public class Board {
 			// System.out.println("[[[ 글삭제 페이지 ]]]");
 			System.out.println("[[ 해당 게시물이 삭제 되었습니다 ]] ");
 			
-			for( int i = 0 ; i<Day08_2_Start.boardlist.length ; i++ ) {
-				if( Day08_2_Start.boardlist[i] !=null && Day08_2_Start.boardlist[i].bno == bno ) {
-					
-					// 해당 게시물번호의 객체 삭제 
-					Day08_2_Start.boardlist[i] = null;
-					// 삭제된 게시물 뒤로 한칸씩 당기기 
-					for( int j = i ; j<Day08_2_Start.boardlist.length ; j++ ) {
-						
-						// 다음 객체가 있으면 
-						if( Day08_2_Start.boardlist[j+1] != null ) {
-							Day08_2_Start.boardlist[j] = Day08_2_Start.boardlist[j+1];
-						}else {
-							Day08_2_Start.boardlist[j] = null;
-							break;
-						}
-					}
+			int index = findboard(bno); // 게시물 찾기 메소드 호출 
+			if( index == -1 ) return; // 만약에 게시물이 없으면 메소드 종료 
+			
+			// 해당 게시물번호의 객체 삭제 
+			Day08_2_Start.boardlist[index] = null; // 찾은 게시물 삭제 
+			// 삭제된 게시물 뒤로 한칸씩 당기기 
+			for( int j = index ; j<Day08_2_Start.boardlist.length ; j++ ) {
+					// j 는 삭제된 게시물 뒤 게시물들
+				// 다음 객체가 있으면 
+				if( Day08_2_Start.boardlist[j+1] != null ) {
+					Day08_2_Start.boardlist[j] = Day08_2_Start.boardlist[j+1];
+				}else {
+					Day08_2_Start.boardlist[j] = null;
+					break;
 				}
 			}
+			
 		}
 		// 5. 조회수증가 
 		public void bcount() {
@@ -127,11 +126,10 @@ public class Board {
 		// 6. 글 상세페이지
 		public void bview( int bno ) { // 인수o
 			
-			// 게시물찾기 메소드 호출 
-			int index =  findboard(bno);
-			if( index == -1 ) return;
+			int index =  findboard(bno); // 게시물찾기 메소드 호출 
+			if( index == -1 ) return; // 만약에 -1 이면 현재 메소드 종료
 			
-			Board board  = Day08_2_Start.boardlist[index];
+			Board board  = Day08_2_Start.boardlist[index]; // 찾은 게시물의 위치의 게시물 가져오기
 			board.bcount(); // 조회수 증가 메소드 호출 
 
 			System.out.println("[[[ 상세페이지 페이지 ]]]");
