@@ -112,7 +112,7 @@ public class Board {
 						if( Day08_2_Start.boardlist[j+1] != null ) {
 							Day08_2_Start.boardlist[j] = Day08_2_Start.boardlist[j+1];
 						}else {
-							Day08_2_Start.boardlist[j+1] = null;
+							Day08_2_Start.boardlist[j] = null;
 							break;
 						}
 					}
@@ -127,20 +127,13 @@ public class Board {
 		// 6. 글 상세페이지
 		public void bview( int bno ) { // 인수o
 			
-			Board board = null ;
+			// 게시물찾기 메소드 호출 
+			int index =  findboard(bno);
+			if( index == -1 ) return;
 			
-			for( int i = 0 ; i<Day08_2_Start.boardlist.length ; i++  ) {	
-				if( Day08_2_Start.boardlist[i] !=null && Day08_2_Start.boardlist[i].bno == bno ) {
-						/// i번째 인덱스의 배열값이 널이 아니면서 i번째 인덱스의 배열값의 게시물번호가 선택한 게시물번호와 같으면 
-					
-					board = Day08_2_Start.boardlist[i];
-					board.bcount(); // 조회수 증가 메소드 호출 
-					break;
-				}
-			}
-			
-			if( board == null ) return;
-			
+			Board board  = Day08_2_Start.boardlist[index];
+			board.bcount(); // 조회수 증가 메소드 호출 
+
 			System.out.println("[[[ 상세페이지 페이지 ]]]");
 			System.out.println(" 제목 : " + board.btitle );
 			System.out.println(" 작성자 : "+board.bwriter+"  조회수 : "+board.bcount +" 작성일 : " + board.bdate);
@@ -155,6 +148,44 @@ public class Board {
 				return; //메소드 종료
 			}
 		}
+		
+		// 7. 게시물번호의 해당하는 배열의 위치를 찾는 메소드 
+		public int findboard( int bno ) {
+			// 반환타입 : 찾은 배열의 위치 반환 
+			for( int i = 0 ; i<Day08_2_Start.boardlist.length ; i++  ) {	
+				if( Day08_2_Start.boardlist[i] !=null && Day08_2_Start.boardlist[i].bno == bno ) {
+						/// i번째 인덱스의 배열값이 널이 아니면서 i번째 인덱스의 배열값의 게시물번호가 선택한 게시물번호와 같으면 
+					return i ; // 찾은 게시물의 배열위치 반환 
+				}
+			}
+			System.out.println("[[오류]] 해당 게시물 번호가 없습니다 ..");
+			return -1; // 배열 인덱스 시작 0부터 -1
+		}
+		
+
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		
 		
 		
