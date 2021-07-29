@@ -1,6 +1,6 @@
 package Day11;
 
-public class Day11 {
+public class Day11_1 {
 	
 	// 인터페이스 : 사용자가 기기를 쉽게 동작시키는 시스템
 		// 목적 : 여러클래스들이 동일한 목적하에 동일한 기능을 수행
