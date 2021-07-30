@@ -1,5 +1,7 @@
 package Day12;
 
+import java.util.Scanner;
+
 public class Day12_1 {
 
 	// 예외처리 : 예외[오류] 발생했을경우 처리 코드
@@ -85,6 +87,60 @@ public class Day12_1 {
 		}finally {
 			System.out.println("예외 있든 없든 무조건 실행되는 자리[finallly] ");
 		}
+		
+		
+		
+		// 1. 
+		/*
+		 * 문제1 : 예외처리
+				1.무한루프로 int형 숫자 계속 입력받기 
+				2. 문자입력시 예외처리발생
+				3. 예외처리 해서 다시 입력받기 
+		 * 
+		 */
+		
+		Scanner scanner = new Scanner(System.in); // 입력객체 
+		
+		while(true) {
+			try {
+				// 예외가 예상되는곳에 try { } 묶음
+				System.out.println(" 정수 입력 : "); 
+				int 정수 = scanner.nextInt();
+			}
+			catch( Exception e) {
+				System.out.println("[[문자 입력불가]]");
+				scanner = new Scanner(System.in); // 입력객체 
+			}
+		}
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		
 
 	}
