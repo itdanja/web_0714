@@ -26,31 +26,33 @@ public class Day13_3 {
 		
 		byte[] 바이트배열 = new byte[100];
 		System.out.print("검색할 도서명 : ");
-		System.in.read(바이트배열);
-		String 검색어 = new String(바이트배열);
+		int count = System.in.read(바이트배열);
+		String 검색어 = new String(바이트배열 , 0 , count-2 );
 	
 		// 검색에 해당하는 도서 출력 
 		for( int i = 0 ; i<도서목록.length ;i++ ) {
 			if( 도서목록[i].indexOf(검색어) != -1 ) {
 				System.out.println( 도서목록[i] );
+				
 			}
+		
 		}
 		// 교체
 		System.out.println("교체 단어 : ");
-		System.in.read(바이트배열);
-		String 교체단어 = new String(바이트배열);
+		count = System.in.read(바이트배열);
+		String 교체단어 = new String(바이트배열 , 0 , count-2 );
 		System.out.println("새로운 단어 : ");
-		System.in.read(바이트배열);
-		String 새로운단어 = new String(바이트배열);
+		count = System.in.read(바이트배열);
+		String 새로운단어 = new String(바이트배열 , 0 , count-2 );
 
 		for( int i = 0 ; i<도서목록.length ; i++  ) {
 			if( 도서목록[i].indexOf(검색어) != -1 ) {
-				도서목록[i].replace( 교체단어 , 새로운단어 );
+				도서목록[i] =도서목록[i].replace( 교체단어 , 새로운단어 );
 			}
 		}
 		// 검색에 해당하는 도서 출력 
 		for( int i = 0 ; i<도서목록.length ;i++ ) {
-			if( 도서목록[i].indexOf(검색어) != -1 ) {
+			if( 도서목록[i].indexOf(새로운단어) != -1 ) {
 				System.out.println( 도서목록[i] );
 			}
 		}
