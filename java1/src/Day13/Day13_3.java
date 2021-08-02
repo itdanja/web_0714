@@ -26,16 +26,14 @@ public class Day13_3 {
 		
 		byte[] 바이트배열 = new byte[100];
 		System.out.print("검색할 도서명 : ");
-		int count = System.in.read(바이트배열);
-		String 검색어 = new String(바이트배열 , 0 , count-2 );
-	
+		int count = System.in.read(바이트배열); //  읽은 바이트 개수 세기 
+		String 검색어 = new String(바이트배열 , 0 , count-2 ); // 0부터 읽어온 바이트 개수까지만 -2[줄바꿈\n] 제거 
+		
 		// 검색에 해당하는 도서 출력 
 		for( int i = 0 ; i<도서목록.length ;i++ ) {
 			if( 도서목록[i].indexOf(검색어) != -1 ) {
 				System.out.println( 도서목록[i] );
-				
 			}
-		
 		}
 		// 교체
 		System.out.println("교체 단어 : ");
