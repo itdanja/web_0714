@@ -69,9 +69,12 @@ public class Day14_2 {
 		// 2. 인증 
 		//Session session = Session.getDefaultInstance( properties , new Authenticator() { } );
 		Session session = Session.getDefaultInstance( properties , new Authenticator(){ 
+			
+			@Override
 			protected PasswordAuthentication getPasswordAuthentication() {
 				return new PasswordAuthentication(fromemail, frompassword);
 			}
+			
 		} );
 		
 		// 3. 메일보내기 
