@@ -1,6 +1,7 @@
 package Day13;
 
 import java.util.Calendar;
+import java.util.Scanner;
 
 public class Day13_5_달력 {
 	
@@ -14,19 +15,22 @@ public class Day13_5_달력 {
 		// 과제2 :
 			// 입력받은 시작연도/월  ~ 끝연도/월 : 범위 달력 출력 
 		
-		달력메소드();
+		Scanner scanner = new Scanner(System.in);
+		System.out.print("연도 : ");  int year = scanner.nextInt();
+		System.out.print("월 : ");  int month = scanner.nextInt();
+		달력메소드( year , month );
 		
 	}
 	
-	public static void 달력메소드() {
+	public static void 달력메소드( int year , int month ) {
 		
 		// 1. 캘린더 객체 선언 
 		Calendar calendar = Calendar.getInstance();
 		
 		// 2. 캘린더에서 연도 , 월 , 일  가져오기
-		int year = calendar.get(calendar.YEAR);
-		int month = calendar.get(calendar.MONTH)+1; // 0:1월 ~~ 
-		int today = calendar.get( calendar.DAY_OF_MONTH);
+				//int year = calendar.get(calendar.YEAR);
+				//int month = calendar.get(calendar.MONTH)+1; // 0:1월 ~~ 
+				//int today = calendar.get( calendar.DAY_OF_MONTH);
 		
 		// ** : 해당 월의 1일 요일찾기 
 		calendar.set(year, month-1 , 1 ); // calendar.set( 연 , 월 , 일 ) 날짜 사용자설정 

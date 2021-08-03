@@ -29,12 +29,17 @@ Day7 : 배열활용 [ 로또판별기 , 회원제프로그램 ]
 			3. 문자열 ----> 바이트배열 [ getBytes ]
 			4. 문자열 찾기 [ indexof ]
 			5. 문자열 길이 [ length() ]
-			6. 문자열 잘라내기 [ substring() ]
-			7. 문자열 분해 [ split() ]
+			6. 문자열 잘라내기 [ substring() ] : 인덱스[위치] 잘라내기
+			7. 문자열 분해 [ split() ] : 문자 기준으로 잘라내기
 			8. 문자열 치환 [ replace("교체할문자","새로운문자") ]3
 			9. 대소문자 변환 [ toLowerCase() : 소문자변환  toUpperCase() : 대문자변환 ]
 			10. 공백 제거 [ trim() ] : 앞뒤 공백 제거 
-			11. 문자열 변환 [ valueOf() ] : 
+			11. 문자열 변환 [ valueOf() ] :
+			12. String.format( "형식문자" , 객체[데이터] ) 
+			// 문자열 => 기존자료형 변환
+					// 1. 정수형 : Integer.parseInt("문자열")
+					// 2. 실수형 : Double.parseDouble("문자열")
+					// 3. 논리형 : Boolean.parseBoolean("문자열")
 			
 	* Scanner 클래스 
 		키보드 입력받은 객체 
