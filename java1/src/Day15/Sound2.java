@@ -2,7 +2,7 @@ package Day15;
 
 import java.awt.Toolkit;
 
-public class Sound2 implements Runnable {
+public class Sound2 implements Runnable  {
 				// implements 인터페이스 [ 추상메소드 ] 
 	
 	@Override
