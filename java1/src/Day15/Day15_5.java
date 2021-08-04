@@ -14,7 +14,7 @@ public class Day15_5 {
 		
 		Scanner scanner = new Scanner(System.in);
 		
-		boolean sw = true;
+		boolean sw = true;  // 1번실행시 => false => true 
 		
 		while(true) {
 			System.out.println("1.음악 2.영화");
