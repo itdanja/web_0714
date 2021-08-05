@@ -19,4 +19,9 @@ public class 사람 {
 	public String toString() {
 		return this.이름;
 	}
+	
+	
+	
+	
+	
 }
