@@ -62,12 +62,12 @@ System.out.println("================================================");
 					// Arrays.toString( 배열 ) : 배열내 전체 요소들의 정보 출력 
 						// .toString() : 객체의 메모리 주소 [Object 클래스]
 		}
-		// 학생 목록 출력 메소드 // ? extends 학생 : 학생클래스 또는 학생클래스로부터 상속받은 모든 클래스 대용
+		// 학생 목록 출력 메소드 // ? extends 학생 : 학생클래스 또는 학생클래스로부터 상속받은 모든 클래스 대응
 		public static void 학생수강생출력( 코스< ? extends 학생> course) {
 			System.out.println( course.get과정명() + " 수강생명단 : " + 
 					Arrays.toString( course.get회원목록() ) );
 		}
-		// 직장인 목록 출력 메소드 // ? super 직장인 : 직장인클래스 또는 직장인클래스에게 상속주는 모든 클래스 대용
+		// 직장인 목록 출력 메소드 // ? super 직장인 : 직장인클래스 또는 직장인클래스에게 상속주는 모든 클래스 대응
 		public static void 직장인수강생출력(코스< ? super 직장인> course ) {
 			System.out.println( course.get과정명() + " 수강생명단 : " + 
 					Arrays.toString( course.get회원목록() ) );
