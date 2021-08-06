@@ -13,7 +13,7 @@ public class Board {
 		String bwriter;		// 4. 작성자 
 		String bdate;		// 5. 작성일
 		int bcount;			// 6. 조회수
-	// 2. 생성자
+	// 2. 생성자 
 		// [ 생성자명 == 클래스명 동일]
 		// 1. 빈생성자 [ ctrl+스페이바 ]
 		public Board() {} 
@@ -21,12 +21,12 @@ public class Board {
 		public Board(int bno, String btitle, String bcontents,
 				String bwriter, String bdate, int bcount) {
 			
-			this.bno = bno;
+			this.bno = bno; 
 			this.btitle = btitle;
 			this.bcontents = bcontents;
 			this.bwriter = bwriter;
 			this.bdate = bdate;
-			this.bcount = bcount;
+			this.bcount = bcount; 
 		}
 		// 3. 기타 생성자 등등
 	// 3. 메소드 : 

@@ -48,6 +48,7 @@ public class Day17_1 {
 		arrayList.add("database");
 		arrayList.add("c언어");
 		arrayList.add("c++언어");
+		arrayList.add("java");
 		
 		// 출력 
 		System.out.println( " arraylist : " + arrayList );
