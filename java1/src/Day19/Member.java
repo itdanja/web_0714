@@ -9,6 +9,8 @@ public class Member {
 	private String name;
 	private String email;
 	private int point;
+	// 전체 회원수 
+	static int totalno = 0;
 		// private : 현재 클래스내에서만 호출 가능
 	// 생성자 => new 생성자()
 		// 1. 빈생성자   2.풀생성자 
@@ -32,7 +34,10 @@ public class Member {
 			System.out.println("[[[ 이메일(email형식) : ");		String email = Consoleprogram.scanner.next();
 		
 			// 유효성검사 
-				// 1.중복체크 
+				// 1.중복체크 [ 입력한 아이디가 회원목록 리스트에 존재하면 X ] 
+				for( Member temp : Consoleprogram.memberlist ) {
+					if( temp.id.equals(id) ) {System.out.println("[[알림 : 가입실패]] : 동일한 아이디가 존재합니다. "); return;}
+				}
 				// 2.비밀번호 확인
 				if(  !passowrd.equals(passowrdfirm) ) { System.out.println("[[알림 : 가입실패]] : 비밀번호가 일치하지 않습니다 "); return;}
 				// 3.아이디는 10글자이내 // 비밀번호 5글자 //  성명 10글자이내
@@ -41,15 +46,15 @@ public class Member {
 				if( name.length() < 1 || id.length() > 11 ) {System.out.println("[[알림 : 가입실패]] : 이름은 2~10글자 이내만 가능합니다 ");return;}
 				// 4.이메일형식
 				if( !email.contains("@") ) {System.out.println("[[알림 : 가입실패]] : 이메일에 @ 포함하여 입력해주세요 ");return;}
-				
-			// 회원가입 성공 : 객체 => 리스트 => 파일처리 
-				int totalno = 0; // 전체 회원수 [ 회원탈퇴시에 누적 ] 
-					
-				Member member = new Member( totalno+1 , id, passowrd, name, email, 0); // 객체 
-				Consoleprogram.memberlist.add(member);//리스트담기
+			
 			// 파일처리
-			try {
-				FileUtil.filesave(0, member.getNo() );
+			try {	
+				// 회원가입 성공 : 객체 => 리스트 => 파일처리 
+				//FileUtil.fileload(0);
+					Member member = new Member( totalno+1 , id, passowrd, name, email, 0); // 객체 
+					Consoleprogram.memberlist.add(member);//리스트담기
+			
+				//FileUtil.filesave(0, member.getNo() );
 				FileUtil.filesave(1 , 0);
 			}catch (Exception e) {
 				System.out.println("[[파일처리 오류 ]] : 관리자에게 문의 ");

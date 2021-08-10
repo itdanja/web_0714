@@ -19,6 +19,9 @@ public class Consoleprogram {
 	// 프로그램내 파일들 간의 다른 패키지에서 호출  => public
 	//static void programstart() {
 	void programstart() {
+		// 파일에서 회원불러오기 
+		try {FileUtil.fileload(1);} 
+		catch (Exception e) {System.out.println("[[파일처리 오류 ]] : 관리자에게 문의 ");}
 		while(true) {
 			System.out.println("\n[[[ 회원제 커뮤니티 ]]]");
 			System.out.print("[[[ 1.로그인 2.회원가입 3.아이디찾기 4.비밀번호찾기 선택 : ");
