@@ -32,7 +32,8 @@ public class Consoleprogram {
 					Member temp = new Member(); // 회원용 메소드 호출용 객체
 				if( ch == 1 ) { 
 				
-					Member login =  temp.login(); // 로그인 호출되고 반환 : 로그인성공시 객체 / 실패시 null
+					Member login =  temp.login(); 
+					// 로그인 메소드 호출되고 반환 : 로그인성공시 객체 / 실패시 null
 					if( login !=null ) {
 						System.out.println(" 게시판 ");
 						// 게시판 메뉴 호출 [ 인수: login ]
@@ -41,7 +42,7 @@ public class Consoleprogram {
 					}
 				}
 				if( ch == 2 ) { temp.signup(); }
-				if( ch == 3 ) {  }
+				if( ch == 3 ) { temp.findid(); }
 				if( ch == 4 ) {}
 				if( ch <=0  || ch >=4 ) {
 					System.out.println("\t[[알림 : 1,2,3,4 메뉴 중 선택 가능합니다 ]]");

@@ -1,5 +1,15 @@
 package Day19;
 
+import java.util.Properties;
+
+import javax.mail.Authenticator;
+import javax.mail.Message;
+import javax.mail.PasswordAuthentication;
+import javax.mail.Session;
+import javax.mail.Transport;
+import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeMessage;
+
 public class Member {
 	
 	// 필드 [ 회원번호 ,  아이디 , 비밀번호 , 성명 , 이메일 , 포인트 ]
@@ -72,6 +82,7 @@ public class Member {
 			for( Member member : Consoleprogram.memberlist ) {
 				if( member.id.equals(id) && member.password.equals(passowrd) ) {
 					System.out.println(" [[ 안녕하세요 " + member.name +"님 ]]]");
+					// 로그인 성공시 다른 페이지[게시판클래스]에서 로그인된 정보로 활동을 하기위해 성공한 객체 반환하기 
 					return member;  // 반환타입 : 로그인된 회원정보 객체 전달
 				}
 			}
@@ -79,10 +90,66 @@ public class Member {
 			return null; // 로그인 실패시 null
 		}
 		// 3. 아이디찾기 [ 이름 과 이메일 동일한경우 => 아이디 출력 ] 
-		
+		public void findid() {
+			System.out.print("[[[ 이름 : ");		String name = Consoleprogram.scanner.next();
+			System.out.print("[[[ 이메일 : ");	String email = Consoleprogram.scanner.next();
+			
+			for( Member member : Consoleprogram.memberlist ) {
+				if( member.name.equals(name) && member.email.equals(email) ) {
+					System.out.println(" [[ 회원님의 아이디 : " +  member.id);
+					return;
+				}
+			}
+			System.out.println("[[[ 동일한 회원정보가 없습니다 ]]] ");
+		}
 		// 4. 비밀번호찾기 [ 아이디와 이메일 동일한경우 => 비밀번호 : 메일 전송 ]
-		
+		public void findpassword() {
+			System.out.print("[[[ 아이디 : ");		String id = Consoleprogram.scanner.next();
+			System.out.print("[[[ 이메일 : ");		String email = Consoleprogram.scanner.next();
+			
+			for( Member member : Consoleprogram.memberlist ) {
+				if( member.id.equals(id) && member.email.equals(email) ) {
+					System.out.println(" [[ 회원님의 이메일로 비밀번호를 전송했습니다 ]]");
+					sendemail( member.email , 1 , member.password ); // type = 1  비밀번호찾기 메일전송
+					return;
+				}
+			}
+			System.out.println("[[[ 동일한 회원정보가 없습니다 ]]] ");
+		}
 		// 5. 메일전송
+		public void sendemail(  String toemail , int type , String contents ) {
+			
+			// 1. API 다운로드  [ activation.jar , mail.jar ]
+			// 2. 라이브러리 추가  [ javase11 => module-info ]
+			// 0.설정
+			String fromemail="보내는사람이메일@naver.com";
+			String frompassword = "패스워드";
+			// 설정관련 map( 키 , 값 )  컬렉션 
+			Properties properties = new Properties();
+			properties.put("mail.smtp.host", "smtp.naver.com");
+			properties.put("mail.smtp.port", 587 );
+			properties.put("mail.smtp.auth", true );
+			// 1. 인증 
+			Session session = Session.getDefaultInstance( properties , new Authenticator() {
+				@Override // 패스워드 인증 메소드 => 재정의
+				protected PasswordAuthentication getPasswordAuthentication() {
+					// TODO Auto-generated method stub
+					return new PasswordAuthentication(fromemail, frompassword);
+				}
+			});
+			// 2. 메일보내기 
+			try {
+				MimeMessage message = new MimeMessage(session);
+				message.setFrom( new InternetAddress( fromemail) ); // 무조건 예외처리 발생
+				message.addRecipient(Message.RecipientType.TO ,  new InternetAddress(toemail));
+				
+				if( type == 1 ) {
+					message.setSubject(" java console 커뮤니티 " );
+					message.setText(" 회원님의 비밀번호 : "+ contents);
+				}
+				Transport.send(message);
+			}catch (Exception e) { System.out.println("[[ 메일전송 실패 ]] : 관리자에게 문의 "); }
+		}
 		
 	// 메소드 [ get , set 메소드 ]
 	public int getNo() {
