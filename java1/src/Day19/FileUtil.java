@@ -8,12 +8,15 @@ public class FileUtil {
 	// 파일 경로 
 		// 회원파일경로
 		static String memberpath = "C:/Users/User/git/web_0714/java1/src/Day19/memberlist.txt";
+		static String boardpath = "C:/Users/User/git/web_0714/java1/src/Day19/boardpath.txt";
 		static String logpath = "C:/Users/User/git/web_0714/java1/src/Day19/logpath.txt";
+		static String logpath2 = "C:/Users/User/git/web_0714/java1/src/Day19/logpath2.txt";
 		
 	// 파일저장 메소드 
 	public static void filesave( int type , int contents) throws Exception {
 							// 인수 : type : 저장파일 구분용
 		FileOutputStream outputStream = null ; //선언만 
+		
 		// 파일출력스트림 : FileOutputStream
 		if( type == 1 ) {
 			outputStream = new FileOutputStream(memberpath);
@@ -25,11 +28,29 @@ public class FileUtil {
 			outputStream.flush(); // 초기화 [ 스트림에 안에 있는 바이트 제거 ]
 			outputStream.close(); // 스트림 닫기 
 		}
+		if( type == 2 ) {
+			outputStream = new FileOutputStream(boardpath);
+			
+			for( Board board : Consoleprogram.boardlist ) {
+				String outstring = board.getBno() +","+board.getBtitle() +","+board.getBcontents() + ","+
+								board.getBwriter()+","+board.getBdate()+","+board.getBcount()+"\n";
+				outputStream.write( outstring.getBytes() );
+			}
+			outputStream.flush(); // 초기화 [ 스트림에 안에 있는 바이트 제거 ]
+			outputStream.close(); // 스트림 닫기 
+		}
 		if( type == 0 ) {
 			outputStream = new FileOutputStream(logpath);
 			String outstring = contents+"\n";
 			outputStream.write( outstring.getBytes() );
 			
+			outputStream.flush(); // 초기화 [ 스트림에 안에 있는 바이트 제거 ]
+			outputStream.close(); // 스트림 닫기 
+		}
+		if( type == 3 ) {
+			outputStream = new FileOutputStream(logpath2);
+			String outstring = contents+"\n";
+			outputStream.write( outstring.getBytes() );
 			outputStream.flush(); // 초기화 [ 스트림에 안에 있는 바이트 제거 ]
 			outputStream.close(); // 스트림 닫기 
 		}
@@ -75,6 +96,8 @@ public class FileUtil {
 			Member.totalno = Integer.parseInt(log[0]);
 			fileInputStream.close();
 		}
+		
+		
 	}
 	
 	
