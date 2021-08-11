@@ -7,7 +7,7 @@ import java.util.Scanner;
 public class Board {
 	
 	// 필드
-		private static int bno = 0; // 1.게시물번호
+		public static int bno = 0; // 1.게시물번호
 		private String btitle; // 2.제목 
 		private String bcontents; // 3.내용
 		private String bwriter; // 4.작성자
@@ -65,6 +65,10 @@ public class Board {
 		String bdate = simpleDateFormat.format(date);
 		
 		// 객체 
+		try {
+			FileUtil.fileload(3);
+		}
+		catch (Exception e) {}
 		Board board = new Board( bno+1 , btitle , bcontents , bwriter , bdate , 0 );
 		Consoleprogram.boardlist.add(board);
 		// 파일처리
@@ -75,6 +79,7 @@ public class Board {
 		catch (Exception e) {
 			// TODO: handle exception
 		}
+		System.out.println("[[ 게시물 등록 완료 ]] ");
 	}
 		// 5. 게시물 조회수 증가 메소드 
 		// 6. 게시물 수정 메소드 

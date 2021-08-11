@@ -22,8 +22,12 @@ public class Consoleprogram {
 	//static void programstart() {
 	void programstart() {
 		
-		// 파일에서 회원불러오기 
-		try {FileUtil.fileload(1);} 
+		
+		try {
+			FileUtil.fileload(1); // 파일에서 회원불러오기 
+			FileUtil.fileload(2); // 파일에서 게시물 불러오기
+	
+		} 
 		catch (Exception e) {System.out.println("[[파일처리 오류 ]] : 관리자에게 문의 "+ e);}
 		
 		while(true) {

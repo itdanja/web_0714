@@ -83,6 +83,33 @@ public class FileUtil {
 			}
 			fileInputStream.close(); // 스트림 닫기 
 		}
+		if( type == 2 ) {
+			fileInputStredam = new FileInputStream(boardpath);
+			byte[] bytes = new byte[10000];
+			String instring = new String( bytes );
+			String[] boards = instring.split("\n"); // 게시물 분리  
+			for( int i = 0 ; i<boards.length-1 ; i++ ) {
+								// 마지막(공백) 제외 
+				String[] field = boards[i].split(",");
+				Board board = new Board( 
+							Integer.parseInt( field[0] ),
+							field[1] , field[2] , field[3] , field[4] ,
+							Integer.parseInt( field[6] )
+						);
+				Consoleprogram.boardlist.add(board);
+			}
+			fileInputStream.close(); // 스트림 닫기 
+		}
+		if( type == 3 ) {
+			fileInputStream = new FileInputStream(logpath2);
+			byte[] bytes = new byte[1024];
+			fileInputStream.read(bytes);
+			String instring = new String(bytes);
+			String[] log = instring.split("\n");
+			Board.bno = Integer.parseInt(log[0]);
+			fileInputStream.close();
+		}
+		
 		if( type == 0 ) {
 			// 1. 
 			fileInputStream = new FileInputStream(logpath);
@@ -96,6 +123,7 @@ public class FileUtil {
 			Member.totalno = Integer.parseInt(log[0]);
 			fileInputStream.close();
 		}
+		
 		
 		
 	}
