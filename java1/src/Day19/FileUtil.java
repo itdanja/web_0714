@@ -84,7 +84,7 @@ public class FileUtil {
 			fileInputStream.close(); // 스트림 닫기 
 		}
 		if( type == 2 ) {
-			fileInputStredam = new FileInputStream(boardpath);
+			fileInputStream = new FileInputStream(boardpath);
 			byte[] bytes = new byte[10000];
 			String instring = new String( bytes );
 			String[] boards = instring.split("\n"); // 게시물 분리  
