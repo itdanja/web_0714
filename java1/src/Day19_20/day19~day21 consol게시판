@@ -9,8 +9,18 @@
 		3. Board.class
 		4. Reply.class
 		5. Consoleprogram.class
-		6. Fileutile.class
+		6. FileUtil.class
 ----------------------------------------------------------------------
 
+	DAY19
+		Start.class : 메인스레드 
+		Consoleprogram.class : 프로그램 로직
+		Member.class : 회원 클래스 [ 회원가입 ] 
+		FileUtil.class : 파일 입출력 메소드 
+	Day20
+		로그인
+		아이디찾기 / 비밀번호찾기 
+		게시물 등록 / 파일처리 
+		
 
 

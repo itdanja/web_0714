@@ -35,43 +35,58 @@ public class FileUtil {
 		}
 		
 	}
+
 	// 파일호출 메소드 
 	public static void fileload( int type ) throws Exception {
-		
 		FileInputStream fileInputStream = null;
-		
 		if( type == 1 ) {
-			fileInputStream = new FileInputStream(memberpath);	
-			byte[] bytearr = new byte[1024000]; // 파일의 크기 => 임의 
-			fileInputStream.read(bytearr); // 스트림 바이트 읽어와서 배열에 저장
-			// 1. 문자열 변환
-			String filecontents = new String(bytearr);
-			// 2. 회원별 분류 
-			String[] members = filecontents.split("\n");
-			// 3. 필드별 분류 
-			for( String member : members ) {
-				if( member.equals("") ) return;
-				String[] fileds = member.split(",");
-				// 회원번호 , 포인트 => int형으로 형변환
-				// 객체생성
-				Member temp = new Member( 
-						Integer.parseInt( fileds[0]), 
-						fileds[1], fileds[2], fileds[3], fileds[4],
-						Integer.parseInt(fileds[5]) );
-				// 리스트에 저장
-				Consoleprogram.memberlist.add(temp);
+			// 1. 
+			fileInputStream = new FileInputStream(memberpath); // 파일입력스트림에 파일연결 [ 메모리 할당 ]
+			// 2. 스트림(단위:바이트) 바이트 로 읽어오기
+			byte[] bytes = new byte[10000]; // 10kb 정도 배열
+			fileInputStream.read( bytes );
+			// 3. 문자열 변환 [ 바이트 => 문자열 ]
+			String instring = new String(bytes);
+			// 4. 회원 분리하기 \n
+			String[] members = instring.split("\n"); // [마지막 회원은 공백]
+			// 5. 반복문 이용한 회원내 필드 분리
+			for( int i = 0 ; i<members.length-1 ; i++  ) {
+				String[] field = members[i].split(","); // 회원마다 필드간 분리 
+				// 6. 분해된 필드를 객체로 생성 
+				Member member = new Member( 
+						Integer.parseInt(field[0]),
+						field[1] , field[2] , field[3] , field[4],
+						Integer.parseInt(field[5]) );
+				// 7. 각 객체를 리스트 담기
+				Consoleprogram.memberlist.add(member);
 			}
-			fileInputStream.close();
+			fileInputStream.close(); // 스트림 닫기 
 		}
 		if( type == 0 ) {
+			// 1. 
 			fileInputStream = new FileInputStream(logpath);
-			byte[] bytearr = new byte[1024]; // 파일의 크기 => 임의 
-			fileInputStream.read(bytearr);
-			Member.totalno = new Integer( new String(bytearr));
+			// 2. 스트림(단위:바이트) 바이트 로 읽어오기
+			byte[] bytes = new byte[1024];
+			fileInputStream.read(bytes);
+			// 3. 문자열 변환 [ 바이트 => 문자열 ]
+			String instring = new String(bytes);
+			String[] log = instring.split("\n");
+			// 4. 숫자열 변환 후 회원번호 넣기 
+			Member.totalno = Integer.parseInt(log[0]);
 			fileInputStream.close();
 		}
-		
 	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	
 	

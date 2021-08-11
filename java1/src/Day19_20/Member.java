@@ -50,12 +50,14 @@ public class Member {
 			// 파일처리
 			try {	
 				// 회원가입 성공 : 객체 => 리스트 => 파일처리 
-				//FileUtil.fileload(0);
+				FileUtil.fileload(0);
 					Member member = new Member( totalno+1 , id, passowrd, name, email, 0); // 객체 
 					Consoleprogram.memberlist.add(member);//리스트담기
 			
-				//FileUtil.filesave(0, member.getNo() );
+				FileUtil.filesave(0, member.getNo() );
+				
 				FileUtil.filesave(1 , 0);
+				
 			}catch (Exception e) {
 				System.out.println("[[파일처리 오류 ]] : 관리자에게 문의 ");
 			}
