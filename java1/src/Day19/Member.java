@@ -27,11 +27,11 @@ public class Member {
 	// 메소드 
 		// 1. 회원가입 [ 입력받기 => 필드저장 => 객체 => 리스트 담기 ]
 		public void signup() {
-			System.out.println("[[[ 아이디(4~10일자이내) : ");	String id = Consoleprogram.scanner.next();
-			System.out.println("[[[ 비밀번호 : ");				String passowrd = Consoleprogram.scanner.next();
-			System.out.println("[[[ 비밀번호 확인 : ");			String passowrdfirm = Consoleprogram.scanner.next();
-			System.out.println("[[[ 성명 : ");				String name = Consoleprogram.scanner.next();
-			System.out.println("[[[ 이메일(email형식) : ");		String email = Consoleprogram.scanner.next();
+			System.out.print("[[[ 아이디(4~10일자이내) : ");	String id = Consoleprogram.scanner.next();
+			System.out.print("[[[ 비밀번호 : ");				String passowrd = Consoleprogram.scanner.next();
+			System.out.print("[[[ 비밀번호 확인 : ");			String passowrdfirm = Consoleprogram.scanner.next();
+			System.out.print("[[[ 성명 : ");				String name = Consoleprogram.scanner.next();
+			System.out.print("[[[ 이메일(email형식) : ");		String email = Consoleprogram.scanner.next();
 		
 			// 유효성검사 
 				// 1.중복체크 [ 입력한 아이디가 회원목록 리스트에 존재하면 X ] 
@@ -64,9 +64,26 @@ public class Member {
 			System.out.println("[[ 회원가입 성공 ]] : 가입해주셔서 감사합니다");
 		}
 		// 2. 로그인
-		// 3. 아이디찾기 
-		// 4. 비밀번호찾기 
+		public Member login() {
+			
+			System.out.print("[[[ 아이디 : ");	String id = Consoleprogram.scanner.next();
+			System.out.print("[[[ 비밀번호 : ");	String passowrd = Consoleprogram.scanner.next();
+			
+			for( Member member : Consoleprogram.memberlist ) {
+				if( member.id.equals(id) && member.password.equals(passowrd) ) {
+					System.out.println(" [[ 안녕하세요 " + member.name +"님 ]]]");
+					return member;  // 반환타입 : 로그인된 회원정보 객체 전달
+				}
+			}
+			System.out.println("[[[ 동일한 회원정보가 없습니다 ]]] ");
+			return null; // 로그인 실패시 null
+		}
+		// 3. 아이디찾기 [ 이름 과 이메일 동일한경우 => 아이디 출력 ] 
+		
+		// 4. 비밀번호찾기 [ 아이디와 이메일 동일한경우 => 비밀번호 : 메일 전송 ]
+		
 		// 5. 메일전송
+		
 	// 메소드 [ get , set 메소드 ]
 	public int getNo() {
 		return no;
