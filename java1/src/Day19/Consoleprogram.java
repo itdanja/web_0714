@@ -8,6 +8,8 @@ public class Consoleprogram {
 	// 필드( 변수 , 객체 , 배열 등 )
 		// 1. 컬렉션 프레임워크 [ 회원,게시물,댓글 목록 ]
 		static ArrayList<Member> memberlist = new ArrayList<>();
+		static ArrayList<Board> boardlist = new ArrayList<>();
+		
 		// 2. 입력 객체 
 		static Scanner scanner = new Scanner(System.in);
 			// System.in[ 키보드 ] ----> (스트림)바이트 ---> 바이트 scanner 객체에 저장 
@@ -30,6 +32,7 @@ public class Consoleprogram {
 			try {
 				int ch = scanner.nextInt();
 					Member temp = new Member(); // 회원용 메소드 호출용 객체
+					Board temp2 = new Board(); // 게시판 메소드 호출용 객체 
 				if( ch == 1 ) { 
 				
 					Member login =  temp.login(); 
@@ -37,14 +40,16 @@ public class Consoleprogram {
 					if( login !=null ) {
 						System.out.println(" 게시판 ");
 						// 게시판 메뉴 호출 [ 인수: login ]
+						temp2.boardlist( login );
+						login = null;
 					}else {
 						System.out.println(" 로그인 실패 ");
 					}
 				}
 				if( ch == 2 ) { temp.signup(); }
 				if( ch == 3 ) { temp.findid(); }
-				if( ch == 4 ) {}
-				if( ch <=0  || ch >=4 ) {
+				if( ch == 4 ) { temp.findpassword(); }
+				if( ch <=0  || ch >4 ) {
 					System.out.println("\t[[알림 : 1,2,3,4 메뉴 중 선택 가능합니다 ]]");
 				}
 			}
