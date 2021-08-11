@@ -1,4 +1,0 @@
-1,qweqwe,qweqw,qwe,qwe@qwe,0
-1,asdasd,asdas,asd,asd@asd,0
-2,zxczxc,zxczx,zxc,zxc@zxc,0
-3,dfgdfg,dfgdf,dfg,dfg@fgh,0
