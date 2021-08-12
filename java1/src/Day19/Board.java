@@ -50,14 +50,16 @@ public class Board {
 				System.out.println("작성자 : " + board.bwriter );
 				System.out.println("내용 : " + board.bcontents );
 				
+				Reply temp = new Reply();
 				// 해당 게시물의 댓글만 출력 
-				
+				System.out.println("----------댓글목록------------");
+				temp.replylist(board.bno);
+	
 				// 댓글 쓰기 
 				System.out.println("0.댓글쓰기 "); 
 					if( board.bwriter.equals( login.getId() ) ) System.out.println("1.수정 2.삭제" ); 
 				int ch = scanner.nextInt();
 				if( ch == 0 ) {
-					Reply temp = new Reply();
 					temp.replywrite( board.bno , login );
 				}
 				if( board.bwriter.equals( login.getId() ) ) {

@@ -43,7 +43,18 @@ public class Reply {
 			}catch (Exception e) {}			
 			
 		}
-		// 2. 댓글 출력 
+		// 2. 댓글 출력 [ 인수 : 게시물번호 ] :해당 게시물번호가 일치하는 댓글만 출력  
+		public void replylist( int bno ) {
+			
+			System.out.println("작성자\t내용");
+			for(Reply reply : Consoleprogram.replylist  ) {
+				
+				if( reply.getBno() == bno ) {
+					// 댓글의 게시물번호와 현재게시물번호와 동일하면 
+					System.out.println( reply.getRwriter()+"\t"+reply.getRcontents() );
+				}
+			}
+		}
 	
 		// 3. 댓글 삭제
 		
