@@ -7,7 +7,7 @@ import java.util.Scanner;
 public class Board {
 	
 	// 필드
-		public static int bno = 0; // 1.게시물번호
+		private int bno = 0; // 1.게시물번호
 		private String btitle; // 2.제목 
 		private String bcontents; // 3.내용
 		private String bwriter; // 4.작성자
@@ -15,6 +15,8 @@ public class Board {
 		private int bcount; // 6.조회수 
 		
 		Scanner scanner = new Scanner(System.in);
+		
+		public static int totalno = 0;
 	
 	// 생성자
 	public Board() {
@@ -30,6 +32,8 @@ public class Board {
 	}
 	// 메소드 
 
+		// 1. 모든 게시물 출력  메소드 
+	
 		// 3. 개별 게시물 메소드 
 	public void boardview() {
 		
@@ -55,7 +59,7 @@ public class Board {
 			FileUtil.fileload(3);
 		}
 		catch (Exception e) {}
-			Board board = new Board( bno+1 , btitle , bcontents , bwriter , bdate , 0 );
+			Board board = new Board( totalno+1 , btitle , bcontents , bwriter , bdate , 0 );
 			Consoleprogram.boardlist.add(board);
 		// 파일처리
 		try {

@@ -43,6 +43,7 @@ public class Consoleprogram {
 					if( login !=null ) {
 						
 						while( true ) {
+							// 게시물 게시물 출력 
 							System.out.println("[[[ 1.게시물등록 2.게시물조회 3.회원정보[수정/탈퇴] 4.로그아웃 ]] ");
 							int ch2 = scanner.nextInt();
 							if( ch2 == 1 ) { temp2.boardwrite( login ); }

@@ -58,7 +58,7 @@ public class FileUtil {
 	}
 
 	// 파일호출 메소드 
-	public static int fileload( int type ) throws Exception {
+	public static void fileload( int type ) throws Exception {
 		FileInputStream fileInputStream = null;
 		if( type == 1 ) {
 			// 1. 
@@ -107,9 +107,9 @@ public class FileUtil {
 			fileInputStream.read(bytes);
 			String instring = new String(bytes);
 			String[] log = instring.split("\n");
-			int temp = Integer.parseInt(log[0]);
+			Board.totalno = Integer.parseInt(log[0]);
 			fileInputStream.close();
-			return temp;
+
 		}
 		
 		if( type == 0 ) {
@@ -125,8 +125,7 @@ public class FileUtil {
 			Member.totalno = Integer.parseInt(log[0]);
 			fileInputStream.close();
 		}
-		
-		return 0;
+
 	}
 	
 	
