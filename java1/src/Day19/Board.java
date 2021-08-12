@@ -53,8 +53,29 @@ public class Board {
 				if( board.bwriter.equals( login.getId() ) ) {
 					// 게시물작성자 와 로그인된정보의 아이디가 동일하면 
 					System.out.println("1.수정 2.삭제" ); int ch = scanner.nextInt();
-					if( ch==1) {}
-					if( ch==2 ){}
+					if( ch==1) {
+						System.out.println(" [[해당 게시물 수정]] ");
+							scanner.nextLine(); //문제점 : 앞전에 next()등 이 있을경우
+						System.out.print("[[ 제목 : ");	board.btitle = scanner.nextLine();
+						System.out.print("[[ 내용 : ");	board.bcontents = scanner.nextLine();
+						//파일처리 ( 업데이트 )
+						try {
+							FileUtil.filesave(2, 0);
+						}catch (Exception e) {}
+						
+						System.out.println(" [[ 수정 되었습니다 ]]");
+					}
+					if( ch==2 ){
+						System.out.println(" [[해당 게시물 삭제]] ");
+						Consoleprogram.boardlist.remove(board); // 현재 게시물를 리스트에 삭제 
+						// 파일처리 ( 업데이트 ) 
+						try {
+							FileUtil.filesave( 2 , 0 );
+						}
+						catch (Exception e) {}
+						System.out.println(" [[ 삭제 되었습니다 ]]");
+						return; // 메소드 종료 
+					}
 				}
 			}
 		}
@@ -63,8 +84,8 @@ public class Board {
 		// 4. 게시물 등록 메소드 
 	public void boardwrite( Member login) {
 		
-		// scanner.nextLine(); 문제점 
-		//scanner.nextLine(); // 문제점 보완
+		// scanner.nextLine(); 문제점 : 앞전에 next()등 이 있을경우
+			//scanner.nextLine(); // 문제점 보완
 		System.out.print("[[ 제목 : ");	String btitle = scanner.nextLine();
 		System.out.print("[[ 내용 : ");	String bcontents = scanner.nextLine();
 		String bwriter = login.getId(); // 로그인된 아이디
