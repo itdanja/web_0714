@@ -22,7 +22,6 @@ public class Consoleprogram {
 	//static void programstart() {
 	void programstart() {
 		
-		
 		try {
 			FileUtil.fileload(1); // 파일에서 회원불러오기 
 			FileUtil.fileload(2); // 파일에서 게시물 불러오기
@@ -42,10 +41,20 @@ public class Consoleprogram {
 					Member login =  temp.login(); 
 					// 로그인 메소드 호출되고 반환 : 로그인성공시 객체 / 실패시 null
 					if( login !=null ) {
-						System.out.println(" 게시판 ");
-						// 게시판 메뉴 호출 [ 인수: login ]
-						temp2.boardlist( login );
-						login = null;
+						
+						while( true ) {
+							System.out.println("[[[ 1.게시물등록 2.게시물조회 3.회원정보[수정/탈퇴] 4.로그아웃 ]] ");
+							int ch2 = scanner.nextInt();
+							if( ch2 == 1 ) { temp2.boardwrite( login ); }
+							if( ch2 == 2 ) {}
+							if( ch2 == 3 ) {}
+							if( ch2 == 4 ) { 
+								System.out.println("[[[ 로그아웃 되었습니다 ]]]");
+								login = null; // 로그인된정보 null 바꾸기 
+								return;
+							}
+						}
+						
 					}else {
 						System.out.println(" 로그인 실패 ");
 					}

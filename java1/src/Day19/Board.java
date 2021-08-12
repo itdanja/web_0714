@@ -29,20 +29,7 @@ public class Board {
 		this.bcount = bcount;
 	}
 	// 메소드 
-		// 1. 게시판 메뉴 [  모든 게시물 메소드  ]
-	public void boardlist( Member login ) {
-		while( true ) {
-			System.out.println("[[[ 1.게시물등록 2.게시물조회 3.회원정보[수정/탈퇴] 4.로그아웃 ]] ");
-			int ch = scanner.nextInt();
-			if( ch == 1 ) { boardwrite( login ); }
-			if( ch == 2 ) {}
-			if( ch == 3 ) {}
-			if( ch == 4 ) { 
-				System.out.println("[[[ 로그아웃 되었습니다 ]]]");
-				return;
-			}
-		}
-	}
+
 		// 3. 개별 게시물 메소드 
 	public void boardview() {
 		
@@ -51,8 +38,7 @@ public class Board {
 	public void boardwrite( Member login) {
 		
 		// scanner.nextLine(); 문제점 
-		scanner.nextLine(); // 문제점 보완
-		
+		//scanner.nextLine(); // 문제점 보완
 		System.out.print("[[ 제목 : ");	String btitle = scanner.nextLine();
 		System.out.print("[[ 내용 : ");	String bcontents = scanner.nextLine();
 		String bwriter = login.getId(); // 로그인된 아이디
@@ -69,8 +55,8 @@ public class Board {
 			FileUtil.fileload(3);
 		}
 		catch (Exception e) {}
-		Board board = new Board( bno+1 , btitle , bcontents , bwriter , bdate , 0 );
-		Consoleprogram.boardlist.add(board);
+			Board board = new Board( bno+1 , btitle , bcontents , bwriter , bdate , 0 );
+			Consoleprogram.boardlist.add(board);
 		// 파일처리
 		try {
 			FileUtil.filesave( 3 , board.getBno() );

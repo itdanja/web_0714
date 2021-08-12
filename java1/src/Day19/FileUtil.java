@@ -58,7 +58,7 @@ public class FileUtil {
 	}
 
 	// 파일호출 메소드 
-	public static void fileload( int type ) throws Exception {
+	public static int fileload( int type ) throws Exception {
 		FileInputStream fileInputStream = null;
 		if( type == 1 ) {
 			// 1. 
@@ -86,6 +86,7 @@ public class FileUtil {
 		if( type == 2 ) {
 			fileInputStream = new FileInputStream(boardpath);
 			byte[] bytes = new byte[10000];
+			fileInputStream.read( bytes );
 			String instring = new String( bytes );
 			String[] boards = instring.split("\n"); // 게시물 분리  
 			for( int i = 0 ; i<boards.length-1 ; i++ ) {
@@ -94,7 +95,7 @@ public class FileUtil {
 				Board board = new Board( 
 							Integer.parseInt( field[0] ),
 							field[1] , field[2] , field[3] , field[4] ,
-							Integer.parseInt( field[6] )
+							Integer.parseInt( field[5] )
 						);
 				Consoleprogram.boardlist.add(board);
 			}
@@ -106,8 +107,9 @@ public class FileUtil {
 			fileInputStream.read(bytes);
 			String instring = new String(bytes);
 			String[] log = instring.split("\n");
-			Board.bno = Integer.parseInt(log[0]);
+			int temp = Integer.parseInt(log[0]);
 			fileInputStream.close();
+			return temp;
 		}
 		
 		if( type == 0 ) {
@@ -124,8 +126,7 @@ public class FileUtil {
 			fileInputStream.close();
 		}
 		
-		
-		
+		return 0;
 	}
 	
 	
