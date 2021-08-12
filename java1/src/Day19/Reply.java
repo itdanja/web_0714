@@ -24,6 +24,7 @@ public class Reply {
 			this.rcontents = rcontents;
 			this.rwriter = rwriter;
 		}
+		
 	// 메소드 
 		// 1. 댓글쓰기 [ 인수 : 게시물번호 , 로그인된정보 ] 
 		public void replywrite( int bno , Member login ) {

@@ -147,7 +147,7 @@ public class FileUtil {
 		}
 
 		if( type == 0 ) { // 회원 전체수 불러오기
-			fileInputStream = new FileInputStream(logpath);
+			fileInputStream = new FileInputStream(logpath); 
 			// 2. 스트림(단위:바이트) 바이트 로 읽어오기
 			byte[] bytes = new byte[1024];
 			fileInputStream.read(bytes);
@@ -178,8 +178,6 @@ public class FileUtil {
 			Reply.totalno = Integer.parseInt(log[0]);
 			fileInputStream.close();
 		}
-		
-		
 	}
 	
 	
