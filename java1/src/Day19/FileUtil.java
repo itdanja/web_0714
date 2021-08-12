@@ -169,6 +169,16 @@ public class FileUtil {
 			fileInputStream.close();
 		}
 		
+		if( type == 5 ) { // 댓글 전체수 불러오기 
+			fileInputStream = new FileInputStream(logpath3);
+			byte[] bytes = new byte[1024];
+			fileInputStream.read(bytes);
+			String instring = new String(bytes);
+			String[] log = instring.split("\n");
+			Reply.totalno = Integer.parseInt(log[0]);
+			fileInputStream.close();
+		}
+		
 		
 	}
 	

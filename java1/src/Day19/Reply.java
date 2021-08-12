@@ -28,8 +28,10 @@ public class Reply {
 		// 1. 댓글쓰기 [ 인수 : 게시물번호 , 로그인된정보 ] 
 		public void replywrite( int bno , Member login ) {
 			System.out.print("[[ 댓글 내용 : ");	String rcontents = scanner.nextLine();
-			
-			
+			try {
+				FileUtil.fileload(5);
+			}
+			catch (Exception e) {}
 			//객체 
 			Reply reply = new Reply(totalno+1, bno, rcontents, login.getId() );
 			// 리스트에 추가 
