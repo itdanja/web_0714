@@ -54,7 +54,10 @@ public class Board {
 				System.out.println("0.댓글쓰기 "); 
 					if( board.bwriter.equals( login.getId() ) ) System.out.println("1.수정 2.삭제" ); 
 				int ch = scanner.nextInt();
-				
+				if( ch == 0 ) {
+					Reply temp = new Reply();
+					temp.replywrite( board.bno , login );
+				}
 				if( board.bwriter.equals( login.getId() ) ) {
 					// 게시물작성자 와 로그인된정보의 아이디가 동일하면 
 					if( ch==1) {
