@@ -109,7 +109,6 @@ public class FileUtil {
 			String[] log = instring.split("\n");
 			Board.totalno = Integer.parseInt(log[0]);
 			fileInputStream.close();
-
 		}
 		
 		if( type == 0 ) {

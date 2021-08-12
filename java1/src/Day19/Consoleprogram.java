@@ -44,15 +44,16 @@ public class Consoleprogram {
 						
 						while( true ) {
 							// 게시물 게시물 출력 
+							temp2.boardlist();
 							System.out.println("[[[ 1.게시물등록 2.게시물조회 3.회원정보[수정/탈퇴] 4.로그아웃 ]] ");
 							int ch2 = scanner.nextInt();
 							if( ch2 == 1 ) { temp2.boardwrite( login ); }
-							if( ch2 == 2 ) {}
+							if( ch2 == 2 ) { temp2.boardview( login ); }
 							if( ch2 == 3 ) {}
 							if( ch2 == 4 ) { 
 								System.out.println("[[[ 로그아웃 되었습니다 ]]]");
 								login = null; // 로그인된정보 null 바꾸기 
-								return;
+								break; // 반복문 탈출
 							}
 						}
 						

@@ -7,7 +7,7 @@ import java.util.Scanner;
 public class Board {
 	
 	// 필드
-		private int bno = 0; // 1.게시물번호
+		private int bno; // 1.게시물번호
 		private String btitle; // 2.제목 
 		private String bcontents; // 3.내용
 		private String bwriter; // 4.작성자
@@ -16,7 +16,7 @@ public class Board {
 		
 		Scanner scanner = new Scanner(System.in);
 		
-		public static int totalno = 0;
+		public static int totalno = 0; // 게시물 전체 개수
 	
 	// 생성자
 	public Board() {
@@ -32,12 +32,34 @@ public class Board {
 	}
 	// 메소드 
 
-		// 1. 모든 게시물 출력  메소드 
-	
-		// 3. 개별 게시물 메소드 
-	public void boardview() {
-		
+		// 1. 모든 게시물 출력  메소드 // 리스트 모두 출력  
+	public void boardlist() { 
+		System.out.println("[[ 커뮤니티 ]] ");
+		System.out.println("번호\t제목\t작성자\t조회수\t작성일");
+			for( Board board : Consoleprogram.boardlist ) {
+				System.out.println(board.bno+"\t"+board.btitle+"\t"+board.bwriter+"\t"+board.bcount+"\t"+board.bdate);
+			}
+		}
+	// 3. 개별 게시물 메소드(인수 : 로그인된정보  [ 게시물의 번호를 입력받아 해당 게시물의 모든 정보 출력 ]
+	public void boardview( Member login ) { 
+		System.out.print("[[ 게시물번호 : ");	int bno = scanner.nextInt();
+		for( Board board : Consoleprogram.boardlist ) {
+			if( board.bno == bno ) {
+				board.bcount++; // 조회수 증가 
+				System.out.println("제목 : " + board.btitle +" 작성일 : "+ board.bdate + "  조회수 : "+board.bcount);
+				System.out.println("작성자 : " + board.bwriter );
+				System.out.println("내용 : " + board.bcontents );
+				
+				if( board.bwriter.equals( login.getId() ) ) {
+					// 게시물작성자 와 로그인된정보의 아이디가 동일하면 
+					System.out.println("1.수정 2.삭제" ); int ch = scanner.nextInt();
+					if( ch==1) {}
+					if( ch==2 ){}
+				}
+			}
+		}
 	}
+	
 		// 4. 게시물 등록 메소드 
 	public void boardwrite( Member login) {
 		
