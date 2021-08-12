@@ -9,6 +9,7 @@ public class Consoleprogram {
 		// 1. 컬렉션 프레임워크 [ 회원,게시물,댓글 목록 ]
 		static ArrayList<Member> memberlist = new ArrayList<>();
 		static ArrayList<Board> boardlist = new ArrayList<>();
+		static ArrayList<Reply> replylist = new ArrayList<>(); 
 		
 		// 2. 입력 객체 
 		static Scanner scanner = new Scanner(System.in);
@@ -25,7 +26,7 @@ public class Consoleprogram {
 		try {
 			FileUtil.fileload(1); // 파일에서 회원불러오기 
 			FileUtil.fileload(2); // 파일에서 게시물 불러오기
-	
+			FileUtil.fileload(4); // 파일에서 댓글 불러오기 
 		} 
 		catch (Exception e) {System.out.println("[[파일처리 오류 ]] : 관리자에게 문의 "+ e);}
 		

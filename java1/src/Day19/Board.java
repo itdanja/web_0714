@@ -50,6 +50,8 @@ public class Board {
 				System.out.println("작성자 : " + board.bwriter );
 				System.out.println("내용 : " + board.bcontents );
 				
+				// 해당 게시물의 댓글만 출력 
+				
 				// 댓글 쓰기 
 				System.out.println("0.댓글쓰기 "); 
 					if( board.bwriter.equals( login.getId() ) ) System.out.println("1.수정 2.삭제" ); 

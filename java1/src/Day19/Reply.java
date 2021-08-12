@@ -5,10 +5,12 @@ import java.util.Scanner;
 public class Reply {
 	
 	// 필드 
-		private int rno;
+		private int rno; //  댓글 번호 
 		private int bno; // 어떤 게시물의 댓글인지 식별용
 		private String rcontents;
 		private String rwriter;
+		
+		public static int totalno = 0; // 댓글 전체 수 
 		
 		Scanner scanner = new Scanner(System.in);
 		
@@ -26,9 +28,17 @@ public class Reply {
 		// 1. 댓글쓰기 [ 인수 : 게시물번호 , 로그인된정보 ] 
 		public void replywrite( int bno , Member login ) {
 			System.out.print("[[ 댓글 내용 : ");	String rcontents = scanner.nextLine();
+			
+			
 			//객체 
-			Reply reply = new Reply(bno, bno, rcontents, login.getId() );
+			Reply reply = new Reply(totalno+1, bno, rcontents, login.getId() );
+			// 리스트에 추가 
+			Consoleprogram.replylist.add(reply);
 			//파일처리 
+			try {
+				FileUtil.filesave( 4, 0);
+				FileUtil.filesave( 5 , reply.getRno() );
+			}catch (Exception e) {}			
 			
 		}
 		// 2. 댓글 출력 
