@@ -50,9 +50,13 @@ public class Board {
 				System.out.println("작성자 : " + board.bwriter );
 				System.out.println("내용 : " + board.bcontents );
 				
+				// 댓글 쓰기 
+				System.out.println("0.댓글쓰기 "); 
+					if( board.bwriter.equals( login.getId() ) ) System.out.println("1.수정 2.삭제" ); 
+				int ch = scanner.nextInt();
+				
 				if( board.bwriter.equals( login.getId() ) ) {
 					// 게시물작성자 와 로그인된정보의 아이디가 동일하면 
-					System.out.println("1.수정 2.삭제" ); int ch = scanner.nextInt();
 					if( ch==1) {
 						System.out.println(" [[해당 게시물 수정]] ");
 							scanner.nextLine(); //문제점 : 앞전에 next()등 이 있을경우
