@@ -3,13 +3,21 @@ package Controller;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import Domain.List;
+import Domain.Member;
+import javafx.animation.PauseTransition;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.stage.Stage;
+import javafx.util.Duration;
 
 public class LoginController implements Initializable {	
 							// Initializable : fxml 실행시 초기값 설정 인터페이스 
@@ -56,8 +64,10 @@ public class LoginController implements Initializable {
     }
 
     @FXML
-    void login(MouseEvent event) {	
-
+    void login(MouseEvent event) {	 // 로그인 클릭시 
+    	
+    	imgloading.setVisible(true); // 로딩 이미지 표시 
+    	
     	if( txtid.getText().equals("") ) {
     		lblconfirm.setText(" - 아이디를 입력해주세요 - ");
     		return;
@@ -67,20 +77,57 @@ public class LoginController implements Initializable {
     		return;
     	}
     	
-    	if( txtid.getText().equals("admin") &&
-    			txtpassword.getText().equals("1234") ) {
-    		lblconfirm.setText(" - 로그인 성공 - ");
-    		return;
-    	}
+    	// 2초간 일시정지  [ PauseTransition : javafx 중지 클래스 
+    	PauseTransition pauseTransition = new PauseTransition(); // 객체 생성 
+    	pauseTransition.setDuration( Duration.seconds(2) );		// 일시정지 시간 설정 
+    	//pauseTransition.setOnFinished( 인수 ->  {실행코드} );
+    		// 익명 메소드 [ 람다식 ] 
+    			// 인수 -> {실행코드} 
     	
-    	lblconfirm.setText(" - 올바른 회원정보가 아닙니다 -");
-    	
+    	pauseTransition.setOnFinished( 인수 ->  { 
+    					// 일시정지가 끝나면 실행되는 코드 
+    		imgloading.setVisible(false); // 로딩 이미지 숨기기 
+    		// 입력한 정보가 리스트[회원목록]에 존재하면 
+    		for( Member member : List.members ) {
+	        	if( txtid.getText().equals( member.getId() ) &&
+	        			txtpassword.getText().equals( member.getPassword() ) ) {
+	        		lblconfirm.setText(" - 로그인 성공 - ");
+	        		return;
+	        	}
+    		}
+        	lblconfirm.setText(" - 올바른 회원정보가 아닙니다 -");
+    	} );
+    	pauseTransition.play(); // 정지 클래스 시작
     }
 
     @FXML
-    void signup(MouseEvent event) {
-    	System.out.println(" [[ 회원가입 페이지 이동 ]]");
+    void signup(MouseEvent event) throws Exception { // 회원가입 눌렀을떄 
+    								// throws : 예외던지기 
+    	// 1. 스테이지 생성 
+    	Stage stage = new Stage(); 
+    	// 2. fxml 불러오기 [ Parent 클래스 ]
+    	Parent parent = FXMLLoader.load( getClass().getResource("/FXML/signup.fxml") ); // 무조건 예외
+    	// 3. 씬 생성 [ 씬에 fxml 넣기 ]
+    	Scene scene = new Scene(parent);
+    	// 4. 스테이지 실행 [ 스테이지에 씬 넣기 ] 
+    	stage.setScene(scene);
+    	stage.show();
+    	
     }	
 
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 
 }

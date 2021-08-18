@@ -4,6 +4,7 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 public class Start extends Application {
@@ -18,6 +19,12 @@ public class Start extends Application {
 		// 4. 스테이지에 씬 넣기 
 		stage.setScene(scene);
 		// 5. 스테이지 설정 및 실행 
+		stage.setResizable(false); // 스테이지 크기변경불가 
+		stage.setTitle("adidas sports"); // 스테이지 타이틀 
+		// 스테이지 아이콘 
+			// 1.이미지 불러오기 
+			Image image = new Image("file:C:/Users/User/Desktop/H/web0714/javafx_project/src/FXML/icon.jpg");
+			stage.getIcons().add(image);
 		stage.show();
 		
 	}
@@ -28,7 +35,13 @@ public class Start extends Application {
 	
 }
 
+// 1. 씬빌더[ fxml ]
+// 2. 컨트롤러 [ java ]
+// 3. fxml 파일에 fx:controller = 패키지명.컨트롤명 		 이용한 두 파일 연결 
+//						
+
 	/*
+	 * 	login.fxml
 	 * 	씬빌더 작성된 컨테이너 or 컨트롤 이름 정하기 
 	 * fx:id
 	 * 	
@@ -47,7 +60,27 @@ public class Start extends Application {
 	
 	 */ 
 	
+		
+		/*
+		 * 	signup.fxml
+		 * 	씬빌더 작성된 컨테이너 or 컨트롤 이름 정하기 
+		 * fx:id
+		 * 	
+		 * 	TextField 		: txtid
+		 * 	PasswordFirld	: txtpassword
+		 * 	PasswordFirld	: txtpasswordconfirm
+		 * 	TextField 		: txtname
+		 * 	TextField 		: txtemail
+		 * 	TextField 		: txtphone
+	
+		 * 	Lable 			: btnsignup
+		 * 			On Mouse Clicked : signup
 
+		 *  Lable			: lblconfirm
+
+		 */ 
+		
+		
 
 
 
