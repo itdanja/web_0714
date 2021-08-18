@@ -10,22 +10,21 @@
 <?import javafx.scene.paint.Color?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="382.0" prefWidth="638.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane fx:controller="Controller.LoginController" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="382.0" prefWidth="638.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" >
    <children>
       <ImageView fitHeight="382.0" fitWidth="792.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@background.jpg" />
          </image>
       </ImageView>
-      <TextField layoutX="333.0" layoutY="94.0" prefHeight="35.0" prefWidth="223.0" promptText="아이디" />
-      <PasswordField layoutX="333.0" layoutY="143.0" prefHeight="35.0" prefWidth="223.0" promptText="비밀번호" />
+      <TextField fx:id="txtid" layoutX="333.0" layoutY="94.0" prefHeight="35.0" prefWidth="223.0" promptText="아이디" />
+      <PasswordField fx:id="txtpassword" layoutX="333.0" layoutY="143.0" prefHeight="35.0" prefWidth="223.0" promptText="비밀번호" />
       <ImageView fitHeight="249.0" fitWidth="280.0" layoutX="52.0" layoutY="67.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@logo.png" />
          </image>
       </ImageView>
-      <Label alignment="CENTER" layoutX="333.0" layoutY="218.0" prefHeight="35.0" prefWidth="223.0" style="-fx-background-color: #F9FBEB;" text="Log In">
+      <Label fx:id="btnlogin" alignment="CENTER" layoutX="333.0" layoutY="218.0" onMouseClicked="#login" prefHeight="35.0" prefWidth="223.0" style="-fx-background-color: #F9FBEB;" text="Log In">
          <font>
             <Font name="Yj BACDOO Bold" size="30.0" />
          </font>
@@ -37,27 +36,27 @@
             </DropShadow>
          </effect>
       </Label>
-      <Label layoutX="549.0" layoutY="25.0" prefHeight="20.0" prefWidth="76.0" text="Sign Up">
+      <Label fx:id="btnsignup" layoutX="549.0" layoutY="25.0" onMouseClicked="#signup" prefHeight="20.0" prefWidth="76.0" text="Sign Up">
          <font>
             <Font name="Yj BACDOO Bold" size="15.0" />
          </font>
       </Label>
-      <Label layoutX="333.0" layoutY="326.0" text="Forgot password">
+      <Label fx:id="btnfindpassword" layoutX="333.0" layoutY="326.0" onMouseClicked="#findpassword" text="Forgot password">
          <font>
             <Font name="Yj BACDOO Bold" size="12.0" />
          </font>
       </Label>
-      <Label layoutX="333.0" layoutY="304.0" text="Forgot ID">
+      <Label fx:id="btnfindid" layoutX="333.0" layoutY="304.0" onMouseClicked="#findid" text="Forgot ID">
          <font>
             <Font name="Yj BACDOO Bold" size="12.0" />
          </font>
       </Label>
-      <Label layoutX="333.0" layoutY="191.0" prefHeight="14.0" prefWidth="223.0" text="Confirmmsg" textFill="RED">
+      <Label fx:id="lblconfirm" layoutX="333.0" layoutY="191.0" prefHeight="14.0" prefWidth="223.0" text="Confirmmsg" textFill="RED">
          <font>
             <Font name="Yj BACDOO Bold" size="12.0" />
          </font>
       </Label>
-      <ImageView fitHeight="97.0" fitWidth="111.0" layoutX="459.0" layoutY="265.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="imgloading" fitHeight="97.0" fitWidth="111.0" layoutX="459.0" layoutY="265.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@loading.gif" />
          </image>

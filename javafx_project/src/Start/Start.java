@@ -27,3 +27,31 @@ public class Start extends Application {
 	}
 	
 }
+
+	/*
+	 * 	씬빌더 작성된 컨테이너 or 컨트롤 이름 정하기 
+	 * fx:id
+	 * 	
+	 * 	TextField 		: txtid
+	 * 	PasswordFirld	: txtpassword
+	 * 	Lable 			: btnlogin
+	 * 			On Mouse Clicked : login
+	 * 	Lable 			: btnsignup
+	 * 			On Mouse Clicked : signup
+	 * 	Lable			: btnfindid
+	 * 			On Mouse Clicked : 	findid
+	 * 	Lable			: btnfindpassword
+	 * 			On Mouse Clicked : 	findpassword
+	 *  Lable			: lblconfirm
+	 * 	ImageView		: imgloading
+	
+	 */ 
+	
+
+
+
+
+
+
+
+
