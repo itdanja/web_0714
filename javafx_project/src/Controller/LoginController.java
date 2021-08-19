@@ -54,13 +54,22 @@ public class LoginController implements Initializable {
     private ImageView imgloading;
 
     @FXML
-    void findid(MouseEvent event) {
-    	System.out.println( "[[ 아이디 찾기 페이지로 이동 ]] ");
+    void findid(MouseEvent event) throws Exception {
+    	Stage stage = new Stage();
+    	Parent parent = FXMLLoader.load( getClass().getResource("/FXML/findid.fxml"));
+    	Scene scene = new Scene(parent);
+    	stage.setScene(scene);
+    	stage.show();
     }
 
     @FXML
-    void findpassword(MouseEvent event) {
-    	System.out.println( "[[ 비밀번호 찾기 페이지로 이동 ]] ");
+    void findpassword(MouseEvent event) throws Exception {
+    	
+    	Stage stage = new Stage();
+    	Parent parent = FXMLLoader.load( getClass().getResource("/FXML/findpassword.fxml"));
+    	Scene scene = new Scene(parent);
+    	stage.setScene(scene);
+    	stage.show();
     }
 
     @FXML

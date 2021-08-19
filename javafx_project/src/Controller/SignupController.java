@@ -1,8 +1,10 @@
 package Controller;
 
+import java.io.FileOutputStream;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import Dao.FileUtil;
 import Domain.List;
 import Domain.Member;
 import javafx.fxml.FXML;
@@ -91,15 +93,15 @@ public class SignupController implements Initializable {
     		// 1. 메시지 객체 만들기 [ Alert 클래스 ]
 	    	Alert alert = new Alert( AlertType.INFORMATION );
 	    	// 2. 메시지 내용 넣기 
-	    	alert.setContentText(" adidas sports 가입을 축하합니다 ");
+	    	alert.setContentText(" adidas sports 가입을 축하합니다 [ 축하 포인트 100 지급 ] ");
 	    	alert.setHeaderText(" 회원가입 성공 " );	    	
 	    	// 3. 메시지 실행 
 	    	alert.showAndWait(); // 창열고 닫을때 까지 기다리기
 	    	// 4. 현재 회원가입 스테이지 끄기 
 	    	btnsignup.getScene().getWindow().hide();
+    	// 파일처리  // DB처리 
+	    	FileUtil.filesave();
 	    	
-    	// 파일처리  // DB 
-    	
     }
 
     

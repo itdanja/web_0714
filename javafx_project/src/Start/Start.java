@@ -1,5 +1,6 @@
 package Start;
 
+import Dao.FileUtil;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -11,6 +12,9 @@ public class Start extends Application {
 
 	@Override // extends Application 상속받아 오버라이딩
 	public void start(Stage stage) throws Exception {
+		
+		// 회원 로드 
+		FileUtil.fileload();
 					// 1. 스테이지 이름
 		// 2. fxml 파일 객체화									// 현재 클래스와 패키지가 다르기 때문에 [ 경로 설정 ] 
 		Parent parent = FXMLLoader.load(getClass().getResource("/FXML/login.fxml"));
@@ -79,9 +83,40 @@ public class Start extends Application {
 		 *  Lable			: lblconfirm
 
 		 */ 
-		
-		
 
+			
+			/*
+			 * 	findid.fxml
+			 * 	씬빌더 작성된 컨테이너 or 컨트롤 이름 정하기 
+			 * fx:id
+			 * 
+			 * 	TextField 		: txtname
+			 * 	TextField 		: txtemail
+
+			 * 	Lable 			: btnfindid
+			 * 			On Mouse Clicked : findid
+			
+			 *  Lable			: lblconfirm
+			
+			 */ 
+					
+					
+			/*
+			 * 	findpassword.fxml
+			 * 	씬빌더 작성된 컨테이너 or 컨트롤 이름 정하기 
+			 * fx:id
+			 * 
+			 * 	TextField 		: txtid
+			 * 	TextField 		: txtemail
+			
+			 * 	Lable 			: btnfindpassword
+			 * 			On Mouse Clicked : findpassword	
+			
+			 *  Lable			: lblconfirm
+			
+			 */ 
+					
+			
 
 
 
