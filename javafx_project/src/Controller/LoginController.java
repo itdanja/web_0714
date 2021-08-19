@@ -14,6 +14,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
@@ -21,6 +22,22 @@ import javafx.util.Duration;
 
 public class LoginController implements Initializable {	
 							// Initializable : fxml 실행시 초기값 설정 인터페이스 
+	
+	// 현재 클래스[컨트롤러]의 객체 
+	private static LoginController instance; // 현재클래스의 객체 
+	
+	public LoginController() { // 현재클래스의 메모리 받아 객체 생성하는 생성자 
+		instance = this;
+	}
+	
+	public static LoginController getinstance() { // 객체를 반환해주는 메소드 
+		return instance;
+	}
+	
+	public String getloginid() { 		// 로그인시 입력된 아이디를 반환해주는 메소드 
+		return txtid.getText();
+	}
+	
 	@Override // 초기 메소드 재정의  // fxml파일이 열렸을때 초기 메소드 
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		
@@ -28,6 +45,7 @@ public class LoginController implements Initializable {
 		imgloading.setVisible(false); // 컨트롤.setVisible() : 해당 컨트롤 표시 여부 
 		
 	}
+	
 	// 씬빌더에 정한 fx:id 가져오기 
 	@FXML
     private TextField txtid;
@@ -101,6 +119,28 @@ public class LoginController implements Initializable {
 	        	if( txtid.getText().equals( member.getId() ) &&
 	        			txtpassword.getText().equals( member.getPassword() ) ) {
 	        		lblconfirm.setText(" - 로그인 성공 - ");
+	        		
+	        		// mainpage 실행 
+	        		Stage stage = new Stage();
+	        		try {
+	        			Parent parent = FXMLLoader.load(getClass().getResource("/FXML/mainpage.fxml"));
+	        			Scene scene = new Scene(parent);
+	        			stage.setScene(scene);
+	        			stage.setResizable(false); // 스테이지 크기변경불가 
+	        			stage.setTitle("adidas sports"); // 스테이지 타이틀 
+	        			// 스테이지 아이콘 
+	        				// 1.이미지 불러오기 
+	        				Image image = new Image("file:C:/Users/User/Desktop/H/web0714/javafx_project/src/FXML/icon.jpg");
+	        				stage.getIcons().add(image);
+	        			stage.show();
+	        			
+	        			
+	        		}
+	        		catch (Exception e) {}
+	        		
+	        		// 기존 스테이지 닫기 
+	        		btnlogin.getScene().getWindow().hide();
+	        		
 	        		return;
 	        	}
     		}

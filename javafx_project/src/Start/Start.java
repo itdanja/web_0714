@@ -116,6 +116,27 @@ public class Start extends Application {
 			
 			 */ 
 					
+
+		/*
+		 * 
+		 * 	BoarderPane 	boarderpane
+			AnchorPane		lp
+			AnchorPane		cp
+			Lable			lblloginid
+			Button			btnlogout
+						OnAction : logout
+			
+			Lable		btncommunty
+						OnMouseClicked : communty
+			Lable		btnproduct
+						OnMouseClicked : product
+			Lable		btnchatting
+						OnMouseClicked : chatting
+			Lable		btninfo
+						OnMouseClicked : info
+		 * 
+		 * 
+		 */
 			
 
 

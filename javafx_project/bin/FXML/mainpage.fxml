@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane fx:controller="Controller.MainpageController" fx:id="boarderpane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="638.0" prefWidth="1194.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
+   <center>
+      <AnchorPane fx:id="cp" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #FFFFFF;" BorderPane.alignment="CENTER">
+         <children>
+            <ImageView fitHeight="508.0" fitWidth="883.0" layoutX="16.0" layoutY="71.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@mainimg.jpg" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+   </center>
+   <left>
+      <AnchorPane fx:id="lp" prefHeight="638.0" prefWidth="280.0" style="-fx-background-color: #FFFFFF;" BorderPane.alignment="CENTER">
+         <children>
+            <ImageView fitHeight="167.0" fitWidth="185.0" layoutX="39.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@logo.png" />
+               </image>
+            </ImageView>
+            <Line endX="89.0" endY="307.0" layoutX="177.0" layoutY="290.0" startX="89.0" startY="-250.0" />
+            <Label fx:id="lblloginid" layoutX="26.0" layoutY="204.0" prefHeight="23.0" prefWidth="132.0" text="loginid">
+               <font>
+                  <Font name="Yj BACDOO Bold" size="15.0" />
+               </font>
+            </Label>
+            <Button fx:id="btnlogout" layoutX="170.0" layoutY="204.0" mnemonicParsing="false" onAction="#logout" prefHeight="22.0" prefWidth="79.0" style="-fx-background-color: #ffffff;" text="Logout">
+               <effect>
+                  <DropShadow>
+                     <color>
+                        <Color red="0.8815789222717285" green="0.8081140518188477" blue="0.8081140518188477" />
+                     </color>
+                  </DropShadow>
+               </effect>
+            </Button>
+            <Label fx:id="btncommunty" alignment="CENTER" layoutX="50.0" layoutY="286.0" onMouseClicked="#communty" prefHeight="26.0" prefWidth="160.0" text="Community">
+               <font>
+                  <Font name="Yj BACDOO Bold" size="27.0" />
+               </font>
+            </Label>
+            <Label fx:id="btninfo" alignment="CENTER" layoutX="43.0" layoutY="513.0" onMouseClicked="#info" prefHeight="26.0" prefWidth="160.0" text="info">
+               <font>
+                  <Font name="Yj BACDOO Bold" size="15.0" />
+               </font>
+            </Label>
+            <Label fx:id="btnproduct" alignment="CENTER" layoutX="50.0" layoutY="355.0" onMouseClicked="#product" prefHeight="26.0" prefWidth="160.0" text="Product">
+               <font>
+                  <Font name="Yj BACDOO Bold" size="27.0" />
+               </font>
+            </Label>
+            <Label fx:id="btnchatting" alignment="CENTER" layoutX="50.0" layoutY="420.0" onMouseClicked="#chatting" prefHeight="26.0" prefWidth="160.0" text="Chatting">
+               <font>
+                  <Font name="Yj BACDOO Bold" size="27.0" />
+               </font>
+            </Label>
+            <Label layoutX="69.0" layoutY="597.0" text="고객센터 : 02-1234-1234" />
+            <Line endX="100.0" layoutX="76.0" layoutY="494.0" startX="-6.0" />
+            <Line endX="100.0" layoutX="75.0" layoutY="558.0" startX="-6.0" />
+         </children>
+      </AnchorPane>
+   </left>
+</BorderPane>

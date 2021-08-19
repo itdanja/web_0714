@@ -20,7 +20,6 @@ public class FindpasswordController implements Initializable {
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		lblconfirm.setText("");
 	}
-	
     @FXML
     private TextField txtid;
 
