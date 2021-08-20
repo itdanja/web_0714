@@ -118,6 +118,7 @@ public class Start extends Application {
 					
 
 		/*
+		 * mainpage.fxml
 		 * 
 		 * 	BoarderPane 	boarderpane
 			AnchorPane		lp
@@ -137,6 +138,28 @@ public class Start extends Application {
 		 * 
 		 * 
 		 */
+
+		/*
+		 * 
+		 * 	infopage.fxml 
+		 * 
+		 * 	txtid
+		 * 	txtname
+		 * 	txtemail
+		 * 	txtphone
+		 * 	txtpoint
+		 * 	btnupdate
+		 * 		update
+		 * 	btndelete
+		 * 		delete
+		 * 	
+		 * 
+		 * 
+		 *
+		 */
+
+
+			
 			
 
 

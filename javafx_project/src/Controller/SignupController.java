@@ -72,12 +72,11 @@ public class SignupController implements Initializable {
     		return;
     	}
     	
-    	try { // 연락처 문자를 입력했을경우에 예외 발생 
-    		Integer.parseInt( txtphone.getText() ) ;
-    	}catch (Exception e) {
-    		lblconfirm.setText("연락처는 -제외한 숫자 11 자리 .");
-    		return;
-		}
+		/*
+		 * try { // 연락처 문자를 입력했을경우에 예외 발생 Integer.parseInt( txtphone.getText() ) ;
+		 * }catch (Exception e) { lblconfirm.setText("연락처는 -제외한 숫자 11 자리 ."); return; }
+		 */
+    	
     		// 5. 연락처 -제외한 11글자 
     	if( txtphone.getText().contains("-") || txtphone.getText().length() != 11 ) {
     		lblconfirm.setText("연락처는 -제외한 숫자 11 자리 .");
