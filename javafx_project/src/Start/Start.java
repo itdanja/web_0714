@@ -157,6 +157,25 @@ public class Start extends Application {
 		 * 
 		 *
 		 */
+	
+	/*
+	 * 
+	 * 	infoupdatepage.fxml 
+	 * 
+	 * 	txtpassword
+	 * 	txtnewpassword
+	 * 	txtname
+	 * 	txtemail
+	 * 	txtphone
+	 * 	btnupdate
+	 * 		update
+	
+	 * 	
+	 * 
+	 * 
+	 *
+	 */
+	
 
 
 			

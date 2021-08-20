@@ -23,6 +23,17 @@ import javafx.stage.Stage;
 
 public class MainpageController implements Initializable  {
 	
+	// 현재 클래스[컨트롤러]의 객체 
+	private static MainpageController instance;
+	
+	public MainpageController() {
+		instance = this;
+	}
+	
+	public static MainpageController getinstance() {
+		return instance;
+	}
+
 	private String loginid;
 	
 	@Override
