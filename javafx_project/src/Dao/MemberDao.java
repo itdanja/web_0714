@@ -3,13 +3,22 @@ package Dao;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 
 import Domain.Member;
 
 public class MemberDao {
-				// Dao : 데이터베이스 접근 객체 
+				// Dao : 데이터베이스 접근 객체
+	
+	// JDBC 주요 인터페이스 
+		// 1. connection :  DB연결 인터페이스
+		// 2. PreparedStatement : DB연결후 SQL 관리 / 조작 인터페이스  
+		// 3. resultSet : 쿼리 연결 인터페이스 
+	
 	// 필드 
 	private Connection connection; // DB연결인터페이스 선언
+	
+	private ResultSet resultSet; // 검색후 결과[ SQL실행후 결과 = 쿼리 ] 연결 
 	
 	// dao 객체 
 	private static MemberDao memberDao = new MemberDao(); // 현재 클래스의 객체  
@@ -58,11 +67,35 @@ public class MemberDao {
 		}
 		catch (Exception e) {}
 
-		return false; // 회원가입 실패시 false 반환 
+		return false; // 회원가입 실패시 false 반환  db 오류 
 		
 	}
 	// 2. 로그인 메소드 
-	
+	public boolean login( String id , String password ) {
+		
+		// 1.SQL작성
+		String sql = "select * from member where m_id =? and m_password =?";
+		
+		try {
+			// 2. 
+			PreparedStatement preparedStatement = connection.prepareStatement(sql);
+			// 3. 
+			preparedStatement.setString(1, id);
+			preparedStatement.setString(2, password);
+			// 4. 실행 
+			resultSet =  preparedStatement.executeQuery();
+			// 5. 결과 [ resultset 초기값은 null -> 결과1레코드 -> 결과2레코드 -> 결과3레코드
+			if( resultSet.next() ) {
+				// sql 결과가 존재하면 
+				return true; // 존재하는 회원
+			}
+			return false; // 존재하지 않는 회원
+		}
+		catch (Exception e) {
+			// TODO: handle exception
+		}
+		return false; // 로그인 실패 혹은 db 오류 
+	}
 	// 3. 아이디찾기 메소드 
 	
 	// 4. 비밀번호 찾기 메소드 

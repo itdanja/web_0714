@@ -3,6 +3,7 @@ package Controller;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import Dao.MemberDao;
 import Domain.List;
 import Domain.Member;
 import javafx.animation.PauseTransition;
@@ -114,37 +115,69 @@ public class LoginController implements Initializable {
     	pauseTransition.setOnFinished( 인수 ->  { 
     					// 일시정지가 끝나면 실행되는 코드 
     		imgloading.setVisible(false); // 로딩 이미지 숨기기 
-    		// 입력한 정보가 리스트[회원목록]에 존재하면 
-    		for( Member member : List.members ) {
-	        	if( txtid.getText().equals( member.getId() ) &&
-	        			txtpassword.getText().equals( member.getPassword() ) ) {
-	        		lblconfirm.setText(" - 로그인 성공 - ");
-	        		
-	        		// mainpage 실행 
-	        		Stage stage = new Stage();
-	        		try {
-	        			Parent parent = FXMLLoader.load(getClass().getResource("/FXML/mainpage.fxml"));
-	        			Scene scene = new Scene(parent);
-	        			stage.setScene(scene);
-	        			stage.setResizable(false); // 스테이지 크기변경불가 
-	        			stage.setTitle("adidas sports"); // 스테이지 타이틀 
-	        			// 스테이지 아이콘 
-	        				// 1.이미지 불러오기 
-	        				Image image = new Image("file:C:/Users/User/Desktop/H/web0714/javafx_project/src/FXML/icon.jpg");
-	        				stage.getIcons().add(image);
-	        			stage.show();
-	        			
-	        			
-	        		}
-	        		catch (Exception e) {}
-	        		
-	        		// 기존 스테이지 닫기 
-	        		btnlogin.getScene().getWindow().hide();
-	        		
-	        		return;
-	        	}
+    		
+    		// db처리 
+    		MemberDao memberDao = MemberDao.getMemberDao();
+    		boolean result =  memberDao.login( txtid.getText() , txtpassword.getText() );
+    		
+    		if( result ) {
+    			// 로그인 성공 
+    			Stage stage = new Stage();
+        		try {
+        			Parent parent = FXMLLoader.load(getClass().getResource("/FXML/mainpage.fxml"));
+        			Scene scene = new Scene(parent);
+        			stage.setScene(scene);
+        			stage.setResizable(false); // 스테이지 크기변경불가 
+        			stage.setTitle("adidas sports"); // 스테이지 타이틀 
+        			// 스테이지 아이콘 
+        				// 1.이미지 불러오기 
+        				Image image = new Image("file:C:/Users/User/Desktop/H/web0714/javafx_project/src/FXML/icon.jpg");
+        				stage.getIcons().add(image);
+        			stage.show();
+        			
+        			
+        		}
+        		catch (Exception e) {}
+        		// 기존 스테이지 닫기 
+        		btnlogin.getScene().getWindow().hide();
+        		return;
+        		
+    		}else {
+    			// 로그인 실패
+    			lblconfirm.setText(" - 올바른 회원정보가 아닙니다 -");
     		}
-        	lblconfirm.setText(" - 올바른 회원정보가 아닙니다 -");
+    		
+//			    		// [파일처리] 입력한 정보가 리스트[회원목록]에 존재하면 
+//			    		for( Member member : List.members ) {
+//				        	if( txtid.getText().equals( member.getId() ) &&
+//				        			txtpassword.getText().equals( member.getPassword() ) ) {
+//				        		lblconfirm.setText(" - 로그인 성공 - ");
+//				        		
+//				        		// mainpage 실행 
+//				        		Stage stage = new Stage();
+//				        		try {
+//				        			Parent parent = FXMLLoader.load(getClass().getResource("/FXML/mainpage.fxml"));
+//				        			Scene scene = new Scene(parent);
+//				        			stage.setScene(scene);
+//				        			stage.setResizable(false); // 스테이지 크기변경불가 
+//				        			stage.setTitle("adidas sports"); // 스테이지 타이틀 
+//				        			// 스테이지 아이콘 
+//				        				// 1.이미지 불러오기 
+//				        				Image image = new Image("file:C:/Users/User/Desktop/H/web0714/javafx_project/src/FXML/icon.jpg");
+//				        				stage.getIcons().add(image);
+//				        			stage.show();
+//				        			
+//				        			
+//				        		}
+//				        		catch (Exception e) {}
+//				        		
+//				        		// 기존 스테이지 닫기 
+//				        		btnlogin.getScene().getWindow().hide();
+//				        		
+//				        		return;
+//				        	}
+//			    		}
+//        	lblconfirm.setText(" - 올바른 회원정보가 아닙니다 -");
     	} );
     	pauseTransition.play(); // 정지 클래스 시작
     }
