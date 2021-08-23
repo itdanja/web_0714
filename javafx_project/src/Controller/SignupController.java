@@ -5,6 +5,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import Dao.FileUtil;
+import Dao.MemberDao;
 import Domain.List;
 import Domain.Member;
 import javafx.fxml.FXML;
@@ -82,39 +83,37 @@ public class SignupController implements Initializable {
     		lblconfirm.setText("연락처는 -제외한 숫자 11 자리 .");
     		return;
     	}
+    	
     	// 객체화
     	Member member = new Member( txtid.getText() , txtpassword.getText() 
     			, txtname.getText() , txtemail.getText() , txtphone.getText() , 100 );
     	// 리스트 담기 
-    	List.members.add(member);
-    	// 회원가입 성공 [ 메시지 띄우고 해당 스테이지 닫기 ] 
-    	
-    		// 1. 메시지 객체 만들기 [ Alert 클래스 ]
-	    	Alert alert = new Alert( AlertType.INFORMATION );
-	    	// 2. 메시지 내용 넣기 
-	    	alert.setContentText(" adidas sports 가입을 축하합니다 [ 축하 포인트 100 지급 ] ");
-	    	alert.setHeaderText(" 회원가입 성공 " );	    	
-	    	// 3. 메시지 실행 
-	    	alert.showAndWait(); // 창열고 닫을때 까지 기다리기
-	    	// 4. 현재 회원가입 스테이지 끄기 
-	    	btnsignup.getScene().getWindow().hide();
-    	// 파일처리  // DB처리 
-	    	FileUtil.filesave();
+    		//List.members.add(member);
+    	// 파일처리
+	    	// FileUtil.filesave();
+	    // DB처리
+	    	MemberDao memberDao = MemberDao.getMemberDao();
+	    	boolean result =  memberDao.signup(member);
+	    	
+	    	if( result ) {
+	    	    // 회원가입 성공 [ 메시지 띄우고 해당 스테이지 닫기 ] 
+	    		// 1. 메시지 객체 만들기 [ Alert 클래스 ]
+		    	Alert alert = new Alert( AlertType.INFORMATION );
+		    	// 2. 메시지 내용 넣기 
+		    	alert.setContentText(" adidas sports 가입을 축하합니다 [ 축하 포인트 100 지급 ] ");
+		    	alert.setHeaderText(" 회원가입 성공 " );	    	
+		    	// 3. 메시지 실행 
+		    	alert.showAndWait(); // 창열고 닫을때 까지 기다리기
+		    	// 4. 현재 회원가입 스테이지 끄기 
+		    	btnsignup.getScene().getWindow().hide();   	
+		    	return;
+	    	}else {
+	    		// DB 오류이거나 아이디가 중복되어 있는경우 실패 
+	    		lblconfirm.setText("동일한 아이디가 존재합니다");
+	    		return;
+	    	}
 	    	
     }
 
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
     
 }
