@@ -43,7 +43,28 @@
     				m_point int not null 
 			)
 			
+			create table javafx_2.board(
+				bno int primary key auto_increment , 
+			    btitle varchar(1000) not null , 
+			    bcountents varchar(10000) not null ,
+			    bwriter varchar( 100 ) not null ,
+			    bdate datetime default current_timestamp not null ,
+			    bcount int 
+			)	
+					
+			
 		3. Drop database DB명							: [DB]저장소 삭제
+			[속성]
+				1. primary key : 기본키 
+				2. auto_increment : 자동번호 부여 
+				3. not null : null 제외
+				4. datetime : 8바이트 날짜/시간 자료형
+				5. current_timestamp : 생성시간 기록 
+				
+			[자료형]
+				1. varchar(문자길이) : 문자열 자료형 
+				2. int : 4바이트 정수형
+				
 		
 
 		[ DML : 조작어 ]

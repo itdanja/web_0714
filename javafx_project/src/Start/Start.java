@@ -1,5 +1,6 @@
 package Start;
 
+import Dao.BoardDao;
 import Dao.FileUtil;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
