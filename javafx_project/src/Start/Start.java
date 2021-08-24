@@ -14,7 +14,7 @@ public class Start extends Application {
 	public void start(Stage stage) throws Exception {
 		
 		// 회원 로드 
-		FileUtil.fileload();
+		//FileUtil.fileload();
 					// 1. 스테이지 이름
 		// 2. fxml 파일 객체화									// 현재 클래스와 패키지가 다르기 때문에 [ 경로 설정 ] 
 		Parent parent = FXMLLoader.load(getClass().getResource("/FXML/login.fxml"));

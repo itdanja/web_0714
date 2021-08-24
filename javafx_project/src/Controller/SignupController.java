@@ -91,6 +91,7 @@ public class SignupController implements Initializable {
     		//List.members.add(member);
     	// 颇老贸府
 	    	// FileUtil.filesave();
+    	
 	    // DB贸府
 	    	MemberDao memberDao = MemberDao.getMemberDao();
 	    	boolean result =  memberDao.signup(member);
