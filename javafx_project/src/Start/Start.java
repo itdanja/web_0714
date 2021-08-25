@@ -176,6 +176,38 @@ public class Start extends Application {
 	 * 
 	 *
 	 */
+
+/*
+ * 
+ * tableview
+btnboardwrite
+	boardwrite
+
+txttitle
+txtcontents
+btnboardwrite
+	boardwrite
+btnboardcancel
+	boardcancel
+
+lblbwrier
+lblbcount
+lblbdate
+txttitle
+txtcontents
+btnboardupdate
+	boardupdate
+btnboarddelete
+	boarddelete
+btnboardlist
+	boardlist
+
+ * 
+ * 
+ * 
+ * 
+ * 
+ */
 	
 
 

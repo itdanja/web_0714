@@ -83,8 +83,8 @@ public class BoardDao {
 		}catch (Exception e) {}
 		return null;
 	}
-	
 	// 3. 글상세[ 특정 글 호출 ] 메소드 
+	
 	// 4. 글수정[ 특정 글 수정 ] 메소드 
 	// 5. 글삭제[ 특정 글 삭제 ] 메소드 
 	// 6. 조회수증가 메소드 
