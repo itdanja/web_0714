@@ -163,7 +163,6 @@ public class InfoController implements Initializable {
     void update(ActionEvent event) {
     	// 페이지 전환 [ 메인페이지 메소드 에서 불러오기  ]
     	MainpageController.getinstance().loadpage("infoupdatepage");
-
     }
 	
     
