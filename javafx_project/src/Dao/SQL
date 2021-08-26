@@ -50,6 +50,19 @@
 			    bwriter varchar( 100 ) not null ,
 			    bdate datetime default current_timestamp not null ,
 			    bcount int 
+			)
+			
+			create table javafx_2.product(
+
+				pno int primary key auto_increment , 
+			    pname varchar(100) not null , 
+			    pimage varchar(1000) , 
+			    pcontents varchar(1000) not null , 
+			    pcategory varchar(100) not null ,
+			    pprice int ,
+			    pstock int , 
+			    pactivation int , 
+			    pquantity int 
 			)	
 					
 			
@@ -57,7 +70,7 @@
 			[속성]
 				1. primary key : 기본키 
 				2. auto_increment : 자동번호 부여 
-				3. not null : null 제외
+				3. not null : 필드에 null값 제외
 				4. datetime : 8바이트 날짜/시간 자료형
 				5. current_timestamp : 생성시간 기록 
 				

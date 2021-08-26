@@ -66,7 +66,8 @@ public class CommuntypageController implements Initializable {
 							// 테이블에서 선택한 모델[행]의 아이템[셀값]
 				boarddto = tableview.getSelectionModel().getSelectedItem();
 				// 조회수 증가 
-		
+				boardDao.boardcount( boarddto.getBcount()+1 , boarddto.getBno() );
+				
 				MainpageController.getinstance().loadpage("boardviewpage");
 			}
 		} );
