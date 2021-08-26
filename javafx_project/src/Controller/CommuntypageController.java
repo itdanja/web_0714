@@ -22,7 +22,7 @@ public class CommuntypageController implements Initializable {
 	
 	private static CommuntypageController instance;
 	
-	public CommuntypageController() {
+	public CommuntypageController() { // 본인클래스의 본인객체
 		instance = this;
 	}
 	
@@ -40,7 +40,6 @@ public class CommuntypageController implements Initializable {
 		BoardDao boardDao = BoardDao.getboarddao();
 		// 2. DAO 메소드 실행 
 		ObservableList<BoardDto> boardDtos =  boardDao.boardlist();
-		
 		// 3. 결과를 테이블의 각 필드에 값 넣기 
 		TableColumn tc = tableview.getColumns().get(0); // 첫번째 열[필드] 가져오기 
 		tc.setCellValueFactory( new PropertyValueFactory<>("bno") );
@@ -62,19 +61,15 @@ public class CommuntypageController implements Initializable {
 		// 테이블에 행 클릭했을때 이벤트 
 			//tableview.setOnMouseClicked( (MouseEvent event ) -> { 실행코드 } );
 									// 람다식 : 익명메소드 [  인수 -> 실행코드  ]
-		tableview.setOnMouseClicked( ( MouseEvent event ) -> { 
-			
+		tableview.setOnMouseClicked(  ( MouseEvent event ) -> { 
 			if( event.getButton().equals( MouseButton.PRIMARY) ) { // 해당 이벤트가 클릭이면 
-				
 							// 테이블에서 선택한 모델[행]의 아이템[셀값]
 				boarddto = tableview.getSelectionModel().getSelectedItem();
 				// 조회수 증가 
-				
+		
 				MainpageController.getinstance().loadpage("boardviewpage");
 			}
 		} );
-		
-		
 	}
 	// fx:id 
     @FXML

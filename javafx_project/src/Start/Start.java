@@ -179,28 +179,37 @@ public class Start extends Application {
 
 /*
  * 
- * tableview
-btnboardwrite
-	boardwrite
-
-txttitle
-txtcontents
-btnboardwrite
-	boardwrite
-btnboardcancel
-	boardcancel
-
-lblbwrier
-lblbcount
-lblbdate
-txttitle
-txtcontents
-btnboardupdate
-	boardupdate
-btnboarddelete
-	boarddelete
-btnboardlist
-	boardlist
+			 * 	tableview
+				btnboardwrite
+					boardwrite
+			
+			txttitle
+			txtcontents
+			btnboardwrite
+				boardwrite
+			btnboardcancel
+				boardcancel
+			
+			lblbwrier
+			lblbcount
+			lblbdate
+			txttitle
+			txtcontents
+			btnboardupdate
+				boardupdate
+			btnboarddelete
+				boarddelete
+			btnboardlist
+				boardlist
+				
+				
+			txttitle
+			txtcontents
+			btnboardupdate
+				boardupdate
+			btnboardcancel
+				boardcancel	
+				
 
  * 
  * 
