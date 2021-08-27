@@ -212,9 +212,14 @@ public class Start extends Application {
 				
 
  * 
- * 
- * 
- * 
+ * 		FX:ID 
+ * 			테이블 : tableview 
+ * 			제품등록버튼 : btnproductadd	productadd
+ * 			제품통계버튼 : btnproductsum	productsum
+ * 			lblproductname		
+ * 			lblproductcontents
+ * 			lblproductactivation
+ * 			productimg
  * 
  */
 	
