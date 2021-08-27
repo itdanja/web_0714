@@ -4,11 +4,11 @@ public class ProductDto {
 				// 이동 객체
 	// 필드
 	private int pno;			// 제품 번호 
-	private String  pname;		// 제품 명
-	private String  pimage;		// 제품 이미지 
+	private String pname;		// 제품 명
+	private String pimage;		// 제품 이미지 
 	private String pcontents;	// 제품 설명 
 	private String pcategory;	// 제품 카테고리 
-	private int  pprice;		// 제품 가격 
+	private int pprice;		// 제품 가격 
 	private int pstock;			// 제품 재고 
 	private int pactivation;	// 제품 활성화 
 	private int  pquantity;		// 제품 판매수량 
