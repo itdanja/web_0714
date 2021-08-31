@@ -46,5 +46,10 @@
             <Font name="Yj TEUNTEUN Bold" size="24.0" />
          </font>
       </Label>
+      <Button fx:id="btnproductupdate" layoutX="119.0" layoutY="605.0" mnemonicParsing="false" onAction="#productupdate" prefHeight="11.0" prefWidth="164.0" style="-fx-background-color: #ffffff;" text="제품수정">
+         <effect>
+            <DropShadow />
+         </effect>
+      </Button>
    </children>
 </AnchorPane>

@@ -73,10 +73,46 @@ public class ProductDao {
 		return null;
 	}
 	// 제품 개별 호출 메소드 
-	
+
 	// 제품 수정 메소드 
+	public boolean productupdate(ProductDto productDto) {
+		
+		String sql = "update product set pname=? , pimage=?,pcontents=?,pcategory=?,pprice=?,pstock=?,pactivation=? where pno = ?";
+		
+		try {
+			PreparedStatement preparedStatement = connection.prepareStatement(sql);
+			preparedStatement.setString(1, productDto.getPname());
+			preparedStatement.setString(2, productDto.getPimage());
+			preparedStatement.setString(3, productDto.getPcontents());
+			preparedStatement.setString(4, productDto.getPcategory());
+			preparedStatement.setInt(5, productDto.getPprice());
+			preparedStatement.setInt(6, productDto.getPstock());
+			preparedStatement.setInt(7, productDto.getPactivation());
+			preparedStatement.setInt(8, productDto.getPno() );
+			
+			preparedStatement.executeUpdate();
+			return true;	
+			
+		}catch (Exception e) {}
+		return false;
+	}
+	
 	
 	// 제품 삭제 메소드 
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	
 	

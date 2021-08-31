@@ -20,6 +20,18 @@ import javafx.scene.input.MouseButton;
 
 public class ProductpageController implements Initializable {
 	
+	
+	public ProductDto productdto = null;
+	
+	private static ProductpageController instance;
+	
+	public ProductpageController() {
+		instance = this;
+	}
+	public static ProductpageController getinstance() {
+		return instance;
+	}
+	
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 	
@@ -53,7 +65,7 @@ public class ProductpageController implements Initializable {
 			
 			if( event.getButton().equals( MouseButton.PRIMARY ) ) {
 				
-				ProductDto productdto = tableview.getSelectionModel().getSelectedItem();
+				productdto = tableview.getSelectionModel().getSelectedItem();
 				
 				// 클릭한 아이템의 이미지 
 				Image image = new Image(productdto.getPimage());
@@ -100,23 +112,12 @@ public class ProductpageController implements Initializable {
     void productadd(ActionEvent event) {
     	MainpageController.getinstance().loadpage("productaddpage");
     }
-
     @FXML
     void productsum(ActionEvent event) {
-
     }
-	
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-	
+    @FXML
+    void productupdate(ActionEvent event) {
+    	MainpageController.getinstance().loadpage("productupdatepage");
+    }
+
 }
