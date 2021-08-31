@@ -4,10 +4,13 @@ import java.io.File;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import Dao.ProductDao;
 import Domain.ProductDto;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
@@ -78,9 +81,9 @@ public class ProductaddpageController implements Initializable {
     @FXML
     void productadd(ActionEvent event) {
     	String pname = txtpname.getText();
-    	String pcontents = txtpname.getText();
-    	int pprice = Integer.parseInt( txtpname.getText() );
-    	int pstock = Integer.parseInt( txtpname.getText() );
+    	String pcontents = txtpcontents.getText();
+    	int pprice = Integer.parseInt( txtpprice.getText() );
+    	int pstock = Integer.parseInt( txtpstock.getText() );
     	
     	String pcategory = "";
     	
@@ -96,8 +99,22 @@ public class ProductaddpageController implements Initializable {
     	ProductDto productDto = new ProductDto(pname,pimage,pcontents,pcategory,pprice,pstock,0);
     	
     	// DB 넣기 
+    	ProductDao productDao = ProductDao.getprocutdao();
     	
+    	boolean result = productDao.productadd(productDto);
     	
+    	if( result ) {
+    		Alert alert = new Alert( AlertType.INFORMATION );
+    		alert.setContentText(" 제품 등록 성공 ");
+    		alert.setHeaderText("제품등록");
+    		alert.showAndWait();
+    		MainpageController.getinstance().loadpage("productpage");
+    	}else {
+    		Alert alert = new Alert( AlertType.INFORMATION );
+    		alert.setContentText(" 제품 등록 실패 [ 관리자에게 문의 ]  ");
+    		alert.setHeaderText("제품등록");
+    		alert.showAndWait();
+    	}
     }
 
     @FXML
@@ -135,12 +152,7 @@ public class ProductaddpageController implements Initializable {
     		uploadimg.setImage(image);
     	}
     }
-	
-    
-    
-    
-    
-    
+
     
     
     

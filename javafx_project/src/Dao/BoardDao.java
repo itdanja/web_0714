@@ -25,7 +25,7 @@ public class BoardDao {
 		try {
 			// 1. mysql 드라이버 가져오기 
 			Class.forName("com.mysql.cj.jdbc.Driver");
-			connection = DriverManager.getConnection("jdbc:mysql://localhost:3307/javafx_2?serverTime=UTC","root","1234");
+			connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/javafx_2?serverTimezone=UTC","root","1234");
 			System.out.println("board db 연동 ");
 		}
 		catch (Exception e) {}
@@ -130,33 +130,6 @@ public class BoardDao {
 		
 		return false;
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 
-
-	
-	
-	
-	
-	
-	
-	
 	
 }

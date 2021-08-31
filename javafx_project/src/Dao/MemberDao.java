@@ -33,13 +33,14 @@ public class MemberDao {
 		try {
 			// 1. 해당 드라이브 가져오기 
 			Class.forName("com.mysql.cj.jdbc.Driver");
-			// 2. DB URL 연결
-			connection = DriverManager.getConnection("jdbc:mysql://localhost:3307/javafx_2?serverTime=UTC" , "root" , "1234");
+			System.out.println(" DB 연동 성공1 ");
+			// 2. DB URL 연결1
+			connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/javafx_2?serverTimezone=UTC" , "root" , "1234");
 			
-			System.out.println(" DB 연동 성공 ");
+			System.out.println(" DB 연동 성공2 ");
 		}
 		catch (Exception e) {
-			// TODO: handle exception
+			System.out.println(e);
 		}
 	}
 

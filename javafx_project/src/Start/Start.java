@@ -28,7 +28,7 @@ public class Start extends Application {
 		stage.setTitle("adidas sports"); // 스테이지 타이틀 
 		// 스테이지 아이콘 
 			// 1.이미지 불러오기 
-			Image image = new Image("file:C:/Users/User/Desktop/H/web0714/javafx_project/src/FXML/icon.jpg");
+			Image image = new Image("file:C:/Users/pc/git/web_0714/javafx_project/src/FXML/icon.jpg");
 			stage.getIcons().add(image);
 		stage.show();
 		
